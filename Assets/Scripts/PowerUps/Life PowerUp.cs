@@ -9,4 +9,10 @@ public class LifePowerUp : PowerUpController
         base.Work();
         Debug.Log("you got some extra life now");
     }
+
+    protected override void Destroy()
+    {
+        base.Destroy();
+        Destroy(gameObject, 0.1f);
+    }
 }

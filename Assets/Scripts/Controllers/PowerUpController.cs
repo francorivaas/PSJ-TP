@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
-public class PowerUpController : MonoBehaviour, IInteractable
+public abstract class PowerUpController : MonoBehaviour, IInteractable
 {
     private Collider col;
 
@@ -22,10 +22,15 @@ public class PowerUpController : MonoBehaviour, IInteractable
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             Work();
+            Destroy();
         }
     }
 
     public virtual void Work()
+    {
+    }
+
+    protected virtual void Destroy()
     {
     }
 }

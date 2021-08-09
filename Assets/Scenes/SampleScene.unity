@@ -695,6 +695,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7276101626024848140, guid: 09d279635b2379f4397a612c60b9ed40, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09d279635b2379f4397a612c60b9ed40, type: 3}
 --- !u!1 &1201989213
@@ -1156,6 +1160,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b34e9556eaa52f74d9dcd59754c161a9, type: 3}
+--- !u!1001 &7077068671720038808
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4747038705833019346, guid: 1dd92380d95c0c145bec503979916dd7, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4747038705833019346, guid: 1dd92380d95c0c145bec503979916dd7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4747038705833019346, guid: 1dd92380d95c0c145bec503979916dd7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4747038705833019346, guid: 1dd92380d95c0c145bec503979916dd7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.8154058
+      objectReference: {fileID: 0}
+    - target: {fileID: 4747038705833019346, guid: 1dd92380d95c0c145bec503979916dd7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4747038705833019346, guid: 1dd92380d95c0c145bec503979916dd7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4747038705833019346, guid: 1dd92380d95c0c145bec503979916dd7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4747038705833019346, guid: 1dd92380d95c0c145bec503979916dd7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4747038705833019346, guid: 1dd92380d95c0c145bec503979916dd7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4747038705833019346, guid: 1dd92380d95c0c145bec503979916dd7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4747038705833019346, guid: 1dd92380d95c0c145bec503979916dd7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7229047903058746662, guid: 1dd92380d95c0c145bec503979916dd7, type: 3}
+      propertyPath: m_Name
+      value: Shield PowerUp
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1dd92380d95c0c145bec503979916dd7, type: 3}
 --- !u!1001 &7858317976126565880
 PrefabInstance:
   m_ObjectHideFlags: 0

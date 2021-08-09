@@ -9,4 +9,10 @@ public class ShieldPowerUp : PowerUpController
         base.Work();
         Debug.Log("you got some shield now");
     }
+
+    protected override void Destroy()
+    {
+        base.Destroy();
+        Destroy(gameObject, 0.1f);
+    }
 }

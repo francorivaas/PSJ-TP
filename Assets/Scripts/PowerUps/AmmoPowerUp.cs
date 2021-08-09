@@ -9,4 +9,10 @@ public class AmmoPowerUp : PowerUpController
         base.Work();
         Debug.Log("you collect some ammunition");
     }
+
+    protected override void Destroy()
+    {
+        base.Destroy();
+        Destroy(gameObject, 0.1f);
+    }
 }
