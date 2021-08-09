@@ -34,7 +34,7 @@ public class BulletController : MonoBehaviour
 
     private void Update()
     {
-        transform.position += transform.forward * speed * Time.deltaTime;
+        transform.position += owner.transform.forward * speed * Time.deltaTime;
         lifetime -= Time.deltaTime;
         if (lifetime <= 0)
         {
