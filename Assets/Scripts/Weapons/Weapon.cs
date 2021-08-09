@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class Weapon : MonoBehaviour, IWeapon
 {
     [SerializeField] protected BulletController bullet;
+    [SerializeField] protected Transform firePoint;
 
     public int Damage { get => damage; set => damage = value; }
     [SerializeField] private int damage;

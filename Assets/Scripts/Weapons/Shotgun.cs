@@ -23,7 +23,7 @@ public class Shotgun : Weapon, IGun
 
         for (int i = 0; i < bulletSpread; i++)
         {
-            BulletController b = Instantiate(bullet, transform.position + Random.insideUnitSphere * 1, Quaternion.identity);
+            BulletController b = Instantiate(bullet, firePoint.position + Random.insideUnitSphere * 1, Quaternion.identity);
             b.SetAnOwner(this);
         }
     }

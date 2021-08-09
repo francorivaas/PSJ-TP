@@ -10,6 +10,8 @@ public class Pistol : Weapon, IGun
     private int maxAmmo;
     private int currentAmmo;
 
+
+
     private void Start()
     {
         currentAmmo = maxAmmo;    
@@ -17,7 +19,7 @@ public class Pistol : Weapon, IGun
 
     public override void Attack()
     {
-        BulletController b = Instantiate(bullet, transform.position, Quaternion.identity);
+        BulletController b = Instantiate(bullet, firePoint.position, Quaternion.identity);
         b.SetAnOwner(this);
     }
 

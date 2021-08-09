@@ -6,35 +6,21 @@ public class MovementController : MonoBehaviour
 {
     [SerializeField] private float speed = 5.0f;
 
-    // Start is called before the first frame update
-    void Start()
+    private float moveForward;
+    private float moveSide;
+
+    private Rigidbody body;
+
+    private void Awake()
     {
-        
+        body = GetComponentInParent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        CheckInputs();
-    }
+        moveForward = Input.GetAxisRaw("Vertical") * speed;    
+        moveSide = Input.GetAxisRaw("Horizontal") * speed;
 
-    private void CheckInputs()
-    {
-        if (Input.GetKey(KeyCode.W))
-        {
-            transform.position += Vector3.forward * speed * Time.deltaTime;
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.position += Vector3.back * speed * Time.deltaTime;
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.position += Vector3.left * speed * Time.deltaTime;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.position += Vector3.right * speed * Time.deltaTime;
-        }
+        body.velocity = (transform.forward * moveForward) + (transform.right * moveSide) + (transform.up * body.velocity.y);
     }
 }
