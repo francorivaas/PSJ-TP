@@ -47,6 +47,7 @@ public class BulletController : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             other.GetComponent<LifeController>()?.TakeDamage(owner.Damage);
+            Destroy(gameObject, 0.1f);
         }
     }
 }

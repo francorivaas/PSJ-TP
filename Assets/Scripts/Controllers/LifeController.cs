@@ -23,22 +23,22 @@ public class LifeController : MonoBehaviour, IDamageable
 
     public virtual void TakeDamage(int damage)
     {
-        if (!hasShieldActivated)
-        {
+        //if (!hasShieldActivated)
+        //{
             if (currentLife > 0)
             {
                 currentLife -= damage;
                 Debug.Log("im" + name + "and my life is " + currentLife);
             }
-        }
+        //}
 
-        else if (hasShieldActivated && shield > 0)
-        {
-            shield -= damage;
-            if (shield <= 0) hasShieldActivated = false;
-        }
+        //else if (hasShieldActivated && shield > 0)
+        //{
+        //    shield -= damage;
+        //    if (shield <= 0) hasShieldActivated = false;
+        //}
 
-        else if (currentLife <= 0 && !hasShieldActivated)
+        else if (currentLife <= 0)
         {
             Die();
         }
