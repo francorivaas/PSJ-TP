@@ -23,7 +23,6 @@ public class CameraController : PowerUpController
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
         transform.localEulerAngles = new Vector3(xRotation, 0f, 0f);
-
         playerTransform.Rotate(Vector3.up * mouseX);
     }
 }
