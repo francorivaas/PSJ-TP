@@ -6,7 +6,7 @@ public class CameraController : PowerUpController
 {
     private float xRotation;
     private float mouseSensitivity = 90f;
-    [SerializeField] private Transform player;
+    [SerializeField] private Transform playerTransform;
 
     private void Start()
     {
@@ -24,6 +24,6 @@ public class CameraController : PowerUpController
 
         transform.localEulerAngles = new Vector3(xRotation, 0f, 0f);
 
-        player.Rotate(Vector3.up * mouseX);
+        playerTransform.Rotate(Vector3.up * mouseX);
     }
 }

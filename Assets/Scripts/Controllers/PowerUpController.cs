@@ -6,10 +6,12 @@ using UnityEngine;
 public abstract class PowerUpController : MonoBehaviour, IInteractable
 {
     private Collider col;
+    protected PlayerController player;
 
     private void Awake()
     {
         col = GetComponent<Collider>();    
+        player = FindObjectOfType<PlayerController>();
     }
 
     private void Start()
@@ -28,6 +30,7 @@ public abstract class PowerUpController : MonoBehaviour, IInteractable
 
     public virtual void Work()
     {
+        
     }
 
     protected virtual void Destroy()

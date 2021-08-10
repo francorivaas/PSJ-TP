@@ -155,6 +155,7 @@ MonoBehaviour:
   bullet: {fileID: 4620298234300318090, guid: e334fd46847135c4686c968a4ad91750, type: 3}
   firePoint: {fileID: 27688978}
   damage: 10
+  currentAmmo: 0
 --- !u!4 &27688978
 Transform:
   m_ObjectHideFlags: 0
@@ -263,6 +264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxLife: 100
   currentLife: 0
+  shield: 50
 --- !u!114 &267899193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -697,7 +699,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7276101626024848140, guid: 09d279635b2379f4397a612c60b9ed40, type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09d279635b2379f4397a612c60b9ed40, type: 3}
@@ -937,7 +939,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6abd1052e0388a0408d1e06b6a1f29b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 267899190}
+  playerTransform: {fileID: 267899190}
 --- !u!81 &1695967914
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1167,6 +1169,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3950947021165366454, guid: 1dd92380d95c0c145bec503979916dd7, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4747038705833019346, guid: 1dd92380d95c0c145bec503979916dd7, type: 3}
       propertyPath: m_RootOrder
       value: 8

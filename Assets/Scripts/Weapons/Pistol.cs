@@ -5,12 +5,10 @@ using UnityEngine;
 public class Pistol : Weapon, IGun
 {
     public int MaxAmmo { get => maxAmmo; set => maxAmmo = value; }
-    public int CurrentAmmo { get; set; }
+    public int CurrentAmmo { get => currentAmmo; set => currentAmmo = value; }
 
-    private int maxAmmo;
-    private int currentAmmo;
-
-
+    private int maxAmmo = 10;
+    [SerializeField] private int currentAmmo;
 
     private void Start()
     {
@@ -20,22 +18,12 @@ public class Pistol : Weapon, IGun
     public override void Attack()
     {
         BulletController b = Instantiate(bullet, firePoint.position, Quaternion.identity);
+        currentAmmo--;
         b.SetAnOwner(this);
     }
 
     public void Reload()
     {
-        if (currentAmmo <= 0)
-        {
-            CheckInput();
-        }
-    }
-
-    private void CheckInput()
-    {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            currentAmmo = maxAmmo;
-        }
+        currentAmmo = maxAmmo;
     }
 }

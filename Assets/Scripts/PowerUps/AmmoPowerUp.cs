@@ -4,10 +4,18 @@ using UnityEngine;
 
 public class AmmoPowerUp : PowerUpController
 {
+    private Pistol pistol;
+
     public override void Work()
     {
         base.Work();
-        Debug.Log("you collect some ammunition");
+
+        pistol = player.GetComponentInChildren<Pistol>();
+        if (pistol != null)
+        {
+            pistol.CurrentAmmo += 5;
+            Debug.Log("You picked up some ammo");
+        }
     }
 
     protected override void Destroy()

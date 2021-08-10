@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Weapon weapon;
+    public Weapon Weapon { get => weapon; set => weapon = value; }
 
     private void Update()
     {
