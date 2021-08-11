@@ -200,6 +200,30 @@ Transform:
   m_Father: {fileID: 267899190}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &174144245 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1043291688691476265, guid: 215ddd4af49e3594a88fbc7029a78824, type: 3}
+  m_PrefabInstance: {fileID: 7858317976126565880}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &174144246
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174144245}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 82b67064532b99544a63d46ded39794e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &267899189
 GameObject:
   m_ObjectHideFlags: 0
@@ -728,10 +752,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7276101626024848140, guid: 09d279635b2379f4397a612c60b9ed40, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09d279635b2379f4397a612c60b9ed40, type: 3}
 --- !u!1 &1201989213
@@ -1079,6 +1099,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b34e9556eaa52f74d9dcd59754c161a9, type: 3}
+--- !u!1 &1754741462 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7229047903058746662, guid: 1dd92380d95c0c145bec503979916dd7, type: 3}
+  m_PrefabInstance: {fileID: 7077068671720038808}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1754741463
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1754741462}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bc440bec933290f4abbf1cb20247fc64, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1850231026
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1294,7 +1338,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4747038705833019346, guid: 1dd92380d95c0c145bec503979916dd7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.8154058
+      value: 2.815406
       objectReference: {fileID: 0}
     - target: {fileID: 4747038705833019346, guid: 1dd92380d95c0c145bec503979916dd7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1328,7 +1372,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shield PowerUp
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8254378458283561736, guid: 1dd92380d95c0c145bec503979916dd7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1dd92380d95c0c145bec503979916dd7, type: 3}
 --- !u!1001 &7858317976126565880
 PrefabInstance:
@@ -1355,7 +1400,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3161425188921251719, guid: 215ddd4af49e3594a88fbc7029a78824, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.3548768
+      value: -2.354877
       objectReference: {fileID: 0}
     - target: {fileID: 3161425188921251719, guid: 215ddd4af49e3594a88fbc7029a78824, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1385,5 +1430,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6871063932324985173, guid: 215ddd4af49e3594a88fbc7029a78824, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 215ddd4af49e3594a88fbc7029a78824, type: 3}
