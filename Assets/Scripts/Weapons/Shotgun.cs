@@ -9,12 +9,6 @@ public class Shotgun : Weapon, IGun
     int IGun.MaxAmmo { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
     int IGun.CurrentAmmo { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
-    //public int MaxAmmo { get => maxAmmo; set => maxAmmo = value; }
-    //public int CurrentAmmo { get; set; }
-
-    //private int maxAmmo = 4;
-    //[SerializeField] private int currentAmmo;
-
     private void Start()
     {
         currentAmmo = maxAmmo;    
@@ -22,12 +16,15 @@ public class Shotgun : Weapon, IGun
 
     public override void Attack()
     {
-        currentAmmo--;
-
-        for (int i = 0; i < bulletSpread; i++)
+        if (canShoot)
         {
-            BulletController b = Instantiate(bullet, firePoint.position + Random.insideUnitSphere * 1, Quaternion.identity);
-            b.SetAnOwner(this);
+            currentAmmo--;
+
+            for (int i = 0; i < bulletSpread; i++)
+            {
+                BulletController b = Instantiate(bullet, firePoint.position + Random.insideUnitSphere * 1, Quaternion.identity);
+                b.SetAnOwner(this);
+            }
         }
     }
 

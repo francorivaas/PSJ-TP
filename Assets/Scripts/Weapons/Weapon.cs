@@ -14,10 +14,17 @@ public abstract class Weapon : MonoBehaviour, IWeapon
     protected int maxAmmo = 4;
     protected int currentAmmo;
 
+    protected bool canShoot;
+
     public int Damage { get => damage; set => damage = value; }
     [SerializeField] private int damage;
 
     [SerializeField] protected Text ammoText;
+
+    private void Start()
+    {
+        canShoot = true;    
+    }
 
     public virtual void Attack()
     {
@@ -30,5 +37,13 @@ public abstract class Weapon : MonoBehaviour, IWeapon
     private void Update()
     {
         ammoText.text = currentAmmo + "/" + maxAmmo;
+        if (currentAmmo > 0 && currentAmmo <= maxAmmo)
+        {
+            canShoot = true;
+        }
+        else
+        {
+            canShoot = false;
+        }
     }
 }
