@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LifeController : MonoBehaviour, IDamageable
 {
@@ -13,6 +14,9 @@ public class LifeController : MonoBehaviour, IDamageable
 
     private bool hasShieldActivated = false;
     public bool HasShieldActivated { get => hasShieldActivated; set => hasShieldActivated = value; }
+
+    [SerializeField] private Text lifeText;
+    public bool isPlayer;
 
     private void Start()
     {
@@ -28,7 +32,7 @@ public class LifeController : MonoBehaviour, IDamageable
             if (currentLife > 0)
             {
                 currentLife -= damage;
-                Debug.Log("im" + name + "and my life is " + currentLife);
+                //Debug.Log("im" + name + "and my life is " + currentLife);
             }
         //}
 
@@ -58,5 +62,10 @@ public class LifeController : MonoBehaviour, IDamageable
 
         else if(Input.GetKeyDown(KeyCode.Space) && currentLife <= 0)
             Debug.Log("health is already zero ! ! !");
+
+        if (isPlayer)
+        {
+            lifeText.text = "Life: " + currentLife;
+        }
     }
 }

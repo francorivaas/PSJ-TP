@@ -5,6 +5,7 @@ using UnityEngine;
 public class AmmoPowerUp : PowerUpController
 {
     private Pistol pistol;
+    private Shotgun shotgun;
 
     public override void Work()
     {
@@ -14,7 +15,12 @@ public class AmmoPowerUp : PowerUpController
         if (pistol != null)
         {
             pistol.CurrentAmmo += 5;
-            Debug.Log("You picked up some ammo");
+        }
+
+        shotgun = player.GetComponentInChildren<Shotgun>();
+        if (shotgun != null)
+        {
+            shotgun.CurrentAmmo += 1;
         }
     }
 

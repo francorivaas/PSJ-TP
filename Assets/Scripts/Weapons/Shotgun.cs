@@ -6,11 +6,14 @@ public class Shotgun : Weapon, IGun
 {
     [SerializeField] private int bulletSpread = 5;
 
-    public int MaxAmmo { get => maxAmmo; set => maxAmmo = value; }
-    public int CurrentAmmo { get; set; }
+    int IGun.MaxAmmo { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+    int IGun.CurrentAmmo { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
-    private int maxAmmo = 4;
-    [SerializeField] private int currentAmmo;
+    //public int MaxAmmo { get => maxAmmo; set => maxAmmo = value; }
+    //public int CurrentAmmo { get; set; }
+
+    //private int maxAmmo = 4;
+    //[SerializeField] private int currentAmmo;
 
     private void Start()
     {

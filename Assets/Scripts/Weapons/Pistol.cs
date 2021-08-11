@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class Pistol : Weapon, IGun
 {
-    public int MaxAmmo { get => maxAmmo; set => maxAmmo = value; }
-    public int CurrentAmmo { get => currentAmmo; set => currentAmmo = value; }
+    int IGun.MaxAmmo { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+    int IGun.CurrentAmmo { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
-    private int maxAmmo = 10;
-    [SerializeField] private int currentAmmo;
+    //public int MaxAmmo { get => maxAmmo; set => maxAmmo = value; }
+    //public int CurrentAmmo { get => currentAmmo; set => currentAmmo = value; }
+
+    //private int maxAmmo = 10;
+    //[SerializeField] private int currentAmmo;
 
     private void Start()
     {
@@ -17,8 +20,9 @@ public class Pistol : Weapon, IGun
 
     public override void Attack()
     {
-        BulletController b = Instantiate(bullet, firePoint.position, Quaternion.identity);
         currentAmmo--;
+
+        BulletController b = Instantiate(bullet, firePoint.position, Quaternion.identity);
         b.SetAnOwner(this);
     }
 
