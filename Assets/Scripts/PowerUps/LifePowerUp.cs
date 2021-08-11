@@ -9,6 +9,7 @@ public class LifePowerUp : PowerUpController
     public override void Work()
     {
         base.Work();
+
         playerLife = player.GetComponent<LifeController>();
         playerLife.CurrentLife += 10;
 

@@ -312,6 +312,7 @@ GameObject:
   - component: {fileID: 7333966118261934517}
   - component: {fileID: 7333966118261934516}
   - component: {fileID: 7333966118261934519}
+  - component: {fileID: 4077718841674669635}
   m_Layer: 0
   m_Name: MeleeAttackEnemy
   m_TagString: Untagged
@@ -412,3 +413,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+--- !u!114 &4077718841674669635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7333966118261934518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3272ce573d20f45b92961aa5ab2f59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxLife: 30
+  currentLife: 0
+  shield: 0
+  lifeText: {fileID: 0}
+  isPlayer: 0

@@ -7,18 +7,22 @@ public class Enemy : MonoBehaviour, IBrain
     protected PlayerController player;
     [SerializeField] private float speed = 2F;
     private float distance = 2;
-    public virtual void RecognizePlayer()
-    {
-        player = FindObjectOfType<PlayerController>();
-    }
+
+    public PlayerController Player => player;
 
     private void Start()
     {
         RecognizePlayer();    
     }
 
+    public virtual void RecognizePlayer()
+    {
+        player = FindObjectOfType<PlayerController>();
+    }
+
     public void FollowTarget()
     {
+
         if (player != null)
         {
             transform.LookAt(player.transform);

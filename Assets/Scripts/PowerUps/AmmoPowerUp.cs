@@ -4,24 +4,17 @@ using UnityEngine;
 
 public class AmmoPowerUp : PowerUpController
 {
-    private Pistol pistol;
-    private Shotgun shotgun;
+    private Weapon weapon;
+
+    private void Start()
+    {
+        
+    }
 
     public override void Work()
     {
         base.Work();
-
-        pistol = player.GetComponentInChildren<Pistol>();
-        if (pistol != null)
-        {
-            pistol.CurrentAmmo += 5;
-        }
-
-        shotgun = player.GetComponentInChildren<Shotgun>();
-        if (shotgun != null)
-        {
-            shotgun.CurrentAmmo += 1;
-        }
+        player.Weapon.CurrentAmmo += 5;
     }
 
     protected override void Destroy()
