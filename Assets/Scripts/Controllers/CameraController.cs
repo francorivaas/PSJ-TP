@@ -20,7 +20,7 @@ public class CameraController : PowerUpController
         float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * mouseSensitivity;
 
         xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        xRotation = Mathf.Clamp(xRotation, -45f, 45f);
 
         transform.localEulerAngles = new Vector3(xRotation, 0f, 0f);
         playerTransform.Rotate(Vector3.up * mouseX);
