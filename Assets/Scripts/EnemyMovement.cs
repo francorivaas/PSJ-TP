@@ -15,4 +15,10 @@ public class EnemyMovement : EnemyController
     {
         FollowTarget();
     }
+
+    public override void AttackPlayer()
+    {
+        base.AttackPlayer();
+        Debug.LogWarning("and also give him a hug");
+    }
 }

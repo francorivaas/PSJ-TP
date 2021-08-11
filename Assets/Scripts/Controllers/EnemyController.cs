@@ -8,7 +8,7 @@ public class EnemyController : MonoBehaviour, IBrain
     [SerializeField] private float speed = 2F;
     private float distance = 2;
 
-    public virtual void FollowTarget()
+    public void FollowTarget()
     {
         if (player != null)
         {
@@ -24,5 +24,18 @@ public class EnemyController : MonoBehaviour, IBrain
     public void RecognizePlayer()
     {
         player = FindObjectOfType<PlayerController>();
+    }
+
+    public virtual void AttackPlayer()
+    {
+        Debug.Log("attack player");
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            AttackPlayer();
+        }
     }
 }
