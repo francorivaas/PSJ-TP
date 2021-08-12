@@ -4,12 +4,7 @@ using UnityEngine;
 
 public class AmmoPowerUp : PowerUpController
 {
-    private Weapon weapon;
-
-    private void Start()
-    {
-        
-    }
+    private float delayToDestroy = 0.1f;
 
     public override void Work()
     {
@@ -20,6 +15,6 @@ public class AmmoPowerUp : PowerUpController
     protected override void Destroy()
     {
         base.Destroy();
-        Destroy(gameObject, 0.1f);
+        Destroy(gameObject, delayToDestroy);
     }
 }

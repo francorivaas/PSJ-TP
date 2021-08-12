@@ -33,6 +33,5 @@ public class Enemy : MonoBehaviour, IBrain
 
     public virtual void AttackPlayer()
     {
-        Debug.Log("attack player");
     }
 }

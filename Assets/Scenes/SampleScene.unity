@@ -154,6 +154,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 4620298234300318090, guid: e334fd46847135c4686c968a4ad91750, type: 3}
   firePoint: {fileID: 27688978}
+  maxAmmo: 4
+  currentAmmo: 0
   damage: 10
   ammoText: {fileID: 2104007926}
 --- !u!4 &27688978
@@ -848,6 +850,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 4620298234300318090, guid: e334fd46847135c4686c968a4ad91750, type: 3}
   firePoint: {fileID: 802990291}
+  maxAmmo: 4
+  currentAmmo: 0
   damage: 20
   ammoText: {fileID: 2104007926}
   bulletSpread: 5
@@ -1794,6 +1798,10 @@ PrefabInstance:
     - target: {fileID: 7333966118261934518, guid: 129af4667eb1660498da44e0c73179c6, type: 3}
       propertyPath: m_Name
       value: MeleeAttackEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7333966118261934518, guid: 129af4667eb1660498da44e0c73179c6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 129af4667eb1660498da44e0c73179c6, type: 3}

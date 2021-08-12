@@ -2,15 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shotgun : Weapon, IGun
+public class Shotgun : Weapon
 {
     [SerializeField] private int bulletSpread = 5;
-
-    int IGun.MaxAmmo { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-    int IGun.CurrentAmmo { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+    
 
     private void Start()
     {
+        canShoot = true;
         currentAmmo = maxAmmo;    
     }
 
@@ -25,22 +24,6 @@ public class Shotgun : Weapon, IGun
                 BulletController b = Instantiate(bullet, firePoint.position + Random.insideUnitSphere * 1, Quaternion.identity);
                 b.SetAnOwner(this);
             }
-        }
-    }
-
-    public virtual void Reload()
-    {
-        if (currentAmmo <= 0)
-        {
-            CheckInput();
-        }
-    }
-
-    private void CheckInput()
-    {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            currentAmmo = maxAmmo;
         }
     }
 }

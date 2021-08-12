@@ -12,8 +12,6 @@ public class LifePowerUp : PowerUpController
 
         playerLife = player.GetComponent<LifeController>();
         playerLife.CurrentLife += 10;
-
-        Debug.Log("you got some extra life now");
     }
 
     protected override void Destroy()
