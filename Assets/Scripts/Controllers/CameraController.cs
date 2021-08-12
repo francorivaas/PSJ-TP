@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraController : PowerUpController
 {
     private float xRotation;
-    private float mouseSensitivity = 90f;
+    private float mouseSensitivity = 70f;
     [SerializeField] private Transform playerTransform;
 
     private void Start()

@@ -251,7 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a3272ce573d20f45b92961aa5ab2f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLife: 10
+  maxLife: 50
   currentLife: 0
   shield: 0
   lifeText: {fileID: 0}
