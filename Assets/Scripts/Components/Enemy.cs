@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour, IBrain
 {
-    protected PlayerController player;
     [SerializeField] private float speed = 2F;
     private float distance = 2;
 
+    protected PlayerController player;
     public PlayerController Player => player;
 
     private void Start()
@@ -22,7 +22,6 @@ public class Enemy : MonoBehaviour, IBrain
 
     public void FollowTarget()
     {
-
         if (player != null)
         {
             transform.LookAt(player.transform);

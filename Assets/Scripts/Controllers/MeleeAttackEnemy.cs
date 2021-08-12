@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class MeleeAttackEnemy : Enemy
 {
+    private int damage = 10;
+
     public override void AttackPlayer()
     {
         base.AttackPlayer();
-
-        player.GetComponent<LifeController>().TakeDamage(10);
+        player.GetComponent<LifeController>().TakeDamage(damage);
     }
 
     private void OnTriggerEnter(Collider other)
