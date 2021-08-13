@@ -3,49 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LifeController : MonoBehaviour, IDamageable
+public class LifeController : MonoBehaviour
 {
-    [SerializeField] private int maxLife = 100;
-    [SerializeField] private int currentLife;
-    [SerializeField] private int shield;
-    public int MaxLife { get => maxLife; set => maxLife = value; }
-    public int CurrentLife { get => currentLife; set => currentLife = value; }
-    public int Shield { get => shield; set => shield = value; }
-
-    private bool hasShieldActivated = false;
-    public bool HasShieldActivated { get => hasShieldActivated; set => hasShieldActivated = value; }
+    [SerializeField] private EnemyStats enemyStats;
+    private int _currentLife;
 
     [SerializeField] private Text lifeText;
     public bool isPlayer;
 
     private void Start()
     {
-        currentLife = maxLife;
-        hasShieldActivated = false;
-        shield = 0;
+        _currentLife = enemyStats.MaxLife;
     }
 
     public virtual void TakeDamage(int damage)
     {
-        //if (!hasShieldActivated)
-        //{
-            if (currentLife > 0)
-            {
-                currentLife -= damage;
-                //Debug.Log("im" + name + "and my life is " + currentLife);
-            }
-        //}
-
-        //else if (hasShieldActivated && shield > 0)
-        //{
-        //    shield -= damage;
-        //    if (shield <= 0) hasShieldActivated = false;
-        //}
-
-        else if (currentLife <= 0)
-        {
-            Die();
-        }
+        _currentLife -= damage;
+        if (_currentLife <= 0) Die();
     }
 
     private void Die()
@@ -55,17 +29,17 @@ public class LifeController : MonoBehaviour, IDamageable
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && currentLife > 0)
+        if(Input.GetKeyDown(KeyCode.Space) && _currentLife > 0)
         {
             TakeDamage(10);
         }
 
-        else if(Input.GetKeyDown(KeyCode.Space) && currentLife <= 0)
+        else if(Input.GetKeyDown(KeyCode.Space) && _currentLife <= 0)
             Debug.Log("health is already zero ! ! !");
 
         if (isPlayer)
         {
-            lifeText.text = "Life: " + currentLife;
+            lifeText.text = "Life: " + _currentLife;
         }
     }
 }

@@ -251,9 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a3272ce573d20f45b92961aa5ab2f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLife: 50
-  currentLife: 0
-  shield: 0
+  enemyStats: {fileID: 11400000, guid: a14daf7ade8cdb1408094676712d752a, type: 2}
   lifeText: {fileID: 0}
   isPlayer: 0
 --- !u!54 &7818897328472977662
