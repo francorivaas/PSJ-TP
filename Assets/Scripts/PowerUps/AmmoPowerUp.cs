@@ -5,11 +5,15 @@ using UnityEngine;
 public class AmmoPowerUp : PowerUpController
 {
     private float delayToDestroy = 0.1f;
+    private int ammoPlus = 1;
 
     public override void Work()
     {
         base.Work();
-        player.Weapon.CurrentAmmo += 5;
+        if (player.Weapon.CurrentAmmo < player.Weapon.MaxAmmo)
+        {
+            player.Weapon.CurrentAmmo += ammoPlus;
+        }
     }
 
     protected override void Destroy()
