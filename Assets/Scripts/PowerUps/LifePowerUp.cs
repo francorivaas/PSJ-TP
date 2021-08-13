@@ -10,8 +10,8 @@ public class LifePowerUp : PowerUpController
     {
         base.Work();
 
-        playerLife = player.GetComponent<LifeController>();
-        playerLife.CurrentLife += 10;
+        //playerLife = player.GetComponent<LifeController>();
+        //playerLife.CurrentLife += 10;
     }
 
     protected override void Destroy()

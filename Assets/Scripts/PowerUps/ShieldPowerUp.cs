@@ -9,9 +9,9 @@ public class ShieldPowerUp : PowerUpController
     public override void Work()
     {
         base.Work();
-        playerShield = player.GetComponent<LifeController>();
-        playerShield.HasShieldActivated = true;
-        playerShield.Shield = 50;
+        //playerShield = player.GetComponent<LifeController>();
+        //playerShield.HasShieldActivated = true;
+        //playerShield.Shield = 50;
     }
 
     protected override void Destroy()
