@@ -4,18 +4,7 @@ using UnityEngine;
 
 public class Pistol : Weapon
 {
-    private void Start()
+    public override void Shoot()
     {
-        currentAmmo = maxAmmo;    
-    }
-
-    public override void Attack()
-    {
-        if (canShoot)
-        {
-            currentAmmo--;
-            BulletController b = Instantiate(bullet, transform.position, Quaternion.identity);
-            b.SetAnOwner(this);
-        }
     }
 }

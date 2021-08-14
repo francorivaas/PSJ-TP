@@ -4,8 +4,7 @@ using UnityEngine;
 
 public interface IGun
 {
-    int MaxAmmo { get; }
-    int CurrentAmmo { get; set; }
+    void Shoot();
 
     void Reload();
 }

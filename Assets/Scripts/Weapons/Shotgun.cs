@@ -6,13 +6,7 @@ public class Shotgun : Weapon
 {
     [SerializeField] private int bulletSpread = 5;
 
-    private void Start()
-    {
-        canShoot = true;
-        currentAmmo = maxAmmo;    
-    }
-
-    public override void Attack()
+    public override void Shoot()
     {
         if (canShoot)
         {

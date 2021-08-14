@@ -3,39 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public abstract class Weapon : MonoBehaviour, IWeapon, IGun
+public abstract class Weapon : MonoBehaviour, IGun
 {
-    [SerializeField] protected BulletController bullet;
-    //[SerializeField] protected Transform firePoint;
-
-    public int MaxAmmo { get => maxAmmo; }
+    //me va a cambiar la currentAmmo de todas las guns ?-------------------//
     public int CurrentAmmo { get => currentAmmo; set => currentAmmo = value; }
+    protected int currentAmmo;
+    //--------------------------------------------------------------------//
+    public int Damage => damage;
+    [SerializeField] protected int damage;
 
-    [SerializeField] protected int maxAmmo;
-    [SerializeField] protected int currentAmmo;
-
-    public int Damage { get => damage; set => damage = value; }
-    [SerializeField] private int damage;
+    [SerializeField] private WeaponStats weaponStats;
+    [SerializeField] protected BulletController bullet;
     [SerializeField] protected Text ammoText;
 
     protected bool canShoot;
 
     private void Start()
     {
-        canShoot = true;    
-    }
-
-    public virtual void Attack()
-    {
-    }
-
-    protected virtual void Shoot()
-    {
+        canShoot = true;
+        currentAmmo = weaponStats.MaxAmmo;
     }
 
     private void Update()
     {
-        ammoText.text = currentAmmo + "/" + maxAmmo;
+        ammoText.text = currentAmmo + "/" + weaponStats.MaxAmmo;
         
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -43,13 +34,20 @@ public abstract class Weapon : MonoBehaviour, IWeapon, IGun
         }
 
         canShoot = currentAmmo <= 0 ? false : true;
-
-        if (Input.GetKey(KeyCode.F)) Debug.Log(canShoot);
     }
 
     public void Reload()
     {
-        currentAmmo = maxAmmo;
-        Debug.Log("Reloading ! ! !");
+        currentAmmo = weaponStats.MaxAmmo;
+    }
+
+    public virtual void Shoot()
+    {
+        if (canShoot)
+        {
+            currentAmmo--;
+            BulletController b = Instantiate(bullet, transform.position, Quaternion.identity);
+            b.SetAnOwner(this);
+        }
     }
 }
