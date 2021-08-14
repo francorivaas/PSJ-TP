@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c56b839b04f862f47bfe59f85e051398, type: 3}
   m_Name: EnemyStats
   m_EditorClassIdentifier: 
+  maxLife: 50
+  speed: 2

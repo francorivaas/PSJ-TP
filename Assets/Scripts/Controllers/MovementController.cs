@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class MovementController : MonoBehaviour
 {
-    [SerializeField] private float speed = 5.0f;
-
+    [SerializeField] private ActorStats actorStats;
     private float moveForward;
     private float moveSide;
 
@@ -16,10 +15,10 @@ public class MovementController : MonoBehaviour
         body = GetComponentInParent<Rigidbody>();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        moveForward = Input.GetAxisRaw("Vertical") * speed;    
-        moveSide = Input.GetAxisRaw("Horizontal") * speed;
+        moveForward = Input.GetAxisRaw("Vertical") * actorStats.Speed;    
+        moveSide = Input.GetAxisRaw("Horizontal") * actorStats.Speed;
 
         body.velocity = (transform.forward * moveForward) + (transform.right * moveSide) + (transform.up * body.velocity.y);
     }

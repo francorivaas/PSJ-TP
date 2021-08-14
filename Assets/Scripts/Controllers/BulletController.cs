@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Collider), typeof(Rigidbody))]
 public class BulletController : MonoBehaviour
 {
-    private float speed = 10f;
+    [SerializeField] private float speed;
     private Weapon owner;
 
     private float lifetime = 3.0f;

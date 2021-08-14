@@ -5,7 +5,6 @@ using UnityEngine;
 public class Shotgun : Weapon
 {
     [SerializeField] private int bulletSpread = 5;
-    
 
     private void Start()
     {
