@@ -29,17 +29,6 @@ public class LifeController : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && _currentLife > 0)
-        {
-            TakeDamage(10);
-        }
-
-        else if(Input.GetKeyDown(KeyCode.Space) && _currentLife <= 0)
-            Debug.Log("health is already zero ! ! !");
-
-        if (isPlayer)
-        {
-            lifeText.text = "Life: " + _currentLife;
-        }
+        if (isPlayer) lifeText.text = "Life: " + _currentLife;
     }
 }
