@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public abstract class Weapon : MonoBehaviour, IWeapon, IGun
 {
     [SerializeField] protected BulletController bullet;
-    [SerializeField] protected Transform firePoint;
+    //[SerializeField] protected Transform firePoint;
 
     public int MaxAmmo { get => maxAmmo; }
     public int CurrentAmmo { get => currentAmmo; set => currentAmmo = value; }

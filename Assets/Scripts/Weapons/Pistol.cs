@@ -14,7 +14,7 @@ public class Pistol : Weapon
         if (canShoot)
         {
             currentAmmo--;
-            BulletController b = Instantiate(bullet, firePoint.position, Quaternion.identity);
+            BulletController b = Instantiate(bullet, transform.position, Quaternion.identity);
             b.SetAnOwner(this);
         }
     }
