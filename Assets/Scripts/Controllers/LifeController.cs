@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class LifeController : MonoBehaviour
 {
-    [SerializeField] private EnemyStats enemyStats;
+    [SerializeField] private ActorStats enemyStats;
     private int _currentLife;
 
     [SerializeField] private Text lifeText;
