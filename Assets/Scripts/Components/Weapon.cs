@@ -9,6 +9,7 @@ public abstract class Weapon : MonoBehaviour, IGun
     public int CurrentAmmo { get => currentAmmo; set => currentAmmo = value; }
     protected int currentAmmo;
     //--------------------------------------------------------------------//
+
     public int Damage => damage;
     [SerializeField] protected int damage;
 

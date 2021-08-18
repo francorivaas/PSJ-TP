@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class LifeController : MonoBehaviour
 {
     [SerializeField] private ActorStats enemyStats;
-    private int _currentLife;
+
+    public int CurrentLife { get => _currentLife; }
+    [SerializeField] private int _currentLife;
 
     [SerializeField] private Text lifeText;
     public bool isPlayer;
@@ -24,7 +26,7 @@ public class LifeController : MonoBehaviour
 
     private void Die()
     {
-        Destroy(gameObject);
+        if (!isPlayer) Destroy(gameObject);
     }
 
     private void Update()
