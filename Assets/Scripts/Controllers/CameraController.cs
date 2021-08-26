@@ -1,28 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
-public class CameraController : PowerUpController
+public class CameraController : MonoBehaviour
 {
-    private float xRotation;
-    private float mouseSensitivity = 70f;
-    [SerializeField] private Transform playerTransform;
+    private CinemachineVirtualCamera cinemachineVirtualCamera;
+    public float mouseWheelValue;
 
     private void Start()
     {
-        //Cursor.visible = false;
-        //Cursor.lockState = CursorLockMode.Locked;
+        cinemachineVirtualCamera = GetComponent<CinemachineVirtualCamera>();
     }
 
-    private void Update()
+    void Update()
     {
-        float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * mouseSensitivity;
-        float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * mouseSensitivity;
+        mouseWheelValue = Input.mouseScrollDelta.y;
+        float cmFieldOfView = Mathf.Clamp(cinemachineVirtualCamera.m_Lens.FieldOfView, 25f, 60f);
 
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -45f, 45f);
+        if (mouseWheelValue != 0)
+        {
+            cmFieldOfView += -mouseWheelValue;
+        }
 
-        transform.localEulerAngles = new Vector3(xRotation, 0f, 0f);
-        playerTransform.Rotate(Vector3.up * mouseX);
+        cinemachineVirtualCamera.m_Lens.FieldOfView = cmFieldOfView;
     }
 }
