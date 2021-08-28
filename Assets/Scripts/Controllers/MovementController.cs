@@ -5,21 +5,122 @@ using UnityEngine;
 public class MovementController : MonoBehaviour
 {
     [SerializeField] private ActorStats actorStats;
-    private float moveForward;
-    private float moveSide;
+    //private float moveForward;
+    //private float moveSide;
+    private float rotX;
+    private float rotY;
+    [SerializeField] private Vector3 rotationSensibility;
 
     private Rigidbody body;
+    private Animator animator;
 
-    private void Awake()
+    private bool isMoving;
+    private bool canMove;
+
+    private float maxSpeed;
+    //private float speedMultiplier = 2.0f;
+
+    private void Start()
     {
+        #region Get Components
         body = GetComponentInParent<Rigidbody>();
+        animator = GetComponentInChildren<Animator>();
+        #endregion Get Components
+
+        canMove = true;
+        maxSpeed = actorStats.Speed;
     }
 
     private void Update()
     {
-        moveForward = Input.GetAxisRaw("Vertical") * actorStats.Speed;    
-        moveSide = Input.GetAxisRaw("Horizontal") * actorStats.Speed;
+        CheckRotation();
+        CheckMovement();
+        CheckAiming();
+        CheckSprint();
 
-        body.velocity = (transform.forward * moveForward) + (transform.right * moveSide) + (transform.up * body.velocity.y);
+        //if (isMoving)
+        //{
+        //    moveForward = Input.GetAxisRaw("Vertical") * actorStats.Speed;    
+        //    moveSide = Input.GetAxisRaw("Horizontal") * actorStats.Speed;
+        //}
+        //body.velocity = (transform.forward * moveForward) + (transform.right * moveSide) + (transform.up * body.velocity.y);
+    }
+
+    private void CheckRotation()
+    {
+        rotX += Input.GetAxis("Mouse X") * Time.deltaTime * rotationSensibility.x;
+        rotY += Input.GetAxis("Mouse Y") * Time.deltaTime * rotationSensibility.y;
+
+        if (rotX >= 360)
+        {
+            rotX = 0.0f;
+        }
+
+        transform.rotation = Quaternion.Euler(new Vector3(-rotY, rotX, 0.0f));
+    }
+
+    private void CheckMovement()
+    {
+        if (canMove)
+        {
+            if (Input.GetKey(KeyCode.W))
+            {
+                isMoving = true;
+                body.velocity = transform.forward * maxSpeed;
+            }
+
+            else if (Input.GetKey(KeyCode.S))
+            {
+                isMoving = true;
+                body.velocity = -transform.forward * maxSpeed;
+            }
+
+            else if (Input.GetKey(KeyCode.D))
+            {
+                isMoving = true;
+                body.velocity = transform.right * maxSpeed;
+            }
+
+            else if (Input.GetKey(KeyCode.A))
+            {
+                isMoving = true;
+                body.velocity = -transform.right * maxSpeed;
+            }
+            else if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.W))
+            {
+                isMoving = false;
+                body.velocity = Vector3.zero;
+                animator.SetBool("IsRunning", false);
+            }
+
+            if (isMoving) animator.SetBool("IsRunning", true);
+        }
+    }
+
+    private void CheckSprint()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftShift) && isMoving)
+        {
+            maxSpeed = maxSpeed *= 1.5f;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift) && isMoving)
+        {
+            maxSpeed = actorStats.Speed;
+        }
+    }
+
+    private void CheckAiming()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            canMove = false;
+            animator.SetBool("IsAiming", true);
+        }
+
+        else if (Input.GetMouseButtonUp(1))
+        {
+            canMove = true;
+            animator.SetBool("IsAiming", false);
+        }
     }
 }

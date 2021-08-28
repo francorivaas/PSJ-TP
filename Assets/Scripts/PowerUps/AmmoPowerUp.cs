@@ -5,7 +5,7 @@ using UnityEngine;
 public class AmmoPowerUp : PowerUpController
 {
     private float delayToDestroy = 0.1f;
-    private int ammoPlus = 1;
+    //private int ammoPlus = 1;
 
     public override void Work()
     {

@@ -17,6 +17,7 @@ public class MeleeAttackEnemy : Enemy
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             AttackPlayer();
+            print("attascking player");
         }
     }
 }
