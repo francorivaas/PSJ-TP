@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class LifeController : MonoBehaviour
 {
-    [SerializeField] private ActorStats enemyStats;
+    [SerializeField] private ActorStats actorStats;
 
     public int CurrentLife { get => _currentLife; }
     [SerializeField] private int _currentLife;
@@ -15,12 +15,13 @@ public class LifeController : MonoBehaviour
 
     private void Start()
     {
-        _currentLife = enemyStats.MaxLife;
+        _currentLife = actorStats.MaxLife;
     }
 
     public virtual void TakeDamage(int damage)
     {
         _currentLife -= damage;
+        if (!isPlayer) Debug.Log(CurrentLife);
         if (_currentLife <= 0) Die();
     }
 
