@@ -13,5 +13,10 @@ public class PlayerController : MonoBehaviour
         {
             weapon.Shoot();
         }
+
+        if (Input.GetKey(KeyCode.R))
+        {
+            weapon.Reload();
+        }
     }
 }

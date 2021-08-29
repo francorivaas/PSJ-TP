@@ -5,10 +5,8 @@ using UnityEngine.UI;
 
 public abstract class Weapon : MonoBehaviour, IGun
 {
-    //me va a cambiar la currentAmmo de todas las guns ?-------------------//
     public int CurrentAmmo { get => currentAmmo; set => currentAmmo = value; }
     protected int currentAmmo;
-    //--------------------------------------------------------------------//
 
     public int Damage => damage;
     [SerializeField] protected int damage;
@@ -16,6 +14,7 @@ public abstract class Weapon : MonoBehaviour, IGun
     [SerializeField] private WeaponStats weaponStats;
     [SerializeField] protected BulletController bullet;
     [SerializeField] protected Text ammoText;
+    [SerializeField] protected Transform firePoint;
 
     protected bool canShoot;
 
@@ -28,11 +27,6 @@ public abstract class Weapon : MonoBehaviour, IGun
     private void Update()
     {
         ammoText.text = currentAmmo + "/" + weaponStats.MaxAmmo;
-        
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Reload();
-        }
 
         canShoot = currentAmmo <= 0 ? false : true;
     }
@@ -44,11 +38,5 @@ public abstract class Weapon : MonoBehaviour, IGun
 
     public virtual void Shoot()
     {
-        if (canShoot)
-        {
-            currentAmmo--;
-            BulletController b = Instantiate(bullet, transform.position, Quaternion.identity);
-            b.SetAnOwner(this);
-        }
     }
 }
