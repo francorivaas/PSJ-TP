@@ -21,7 +21,6 @@ public class LifeController : MonoBehaviour
     public virtual void TakeDamage(int damage)
     {
         _currentLife -= damage;
-        if (!isPlayer) Debug.Log(CurrentLife);
         if (_currentLife <= 0) Die();
     }
 

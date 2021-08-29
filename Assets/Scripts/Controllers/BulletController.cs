@@ -50,9 +50,7 @@ public class BulletController : MonoBehaviour
             //Destroy(gameObject, 0.1f);
 
             LifeController enemyLife = other.GetComponent<LifeController>();
-            enemyLife.TakeDamage(owner.Damage);
-            Debug.Log(enemyLife.CurrentLife);
-            
+            enemyLife.TakeDamage(owner.Damage);   
         }
     }
 }

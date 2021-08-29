@@ -1,21 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+//using System.Collections;
+//using System.Collections.Generic;
+//using UnityEngine;
 
-public class EnemyController : Enemy
-{
-    void Start()
-    {
-        RecognizePlayer();
-    }
+//public class EnemyController : Enemy
+//{
+//    void Start()
+//    {
+//        RecognizePlayer();
+//    }
 
-    void Update()
-    {
-        FollowTarget();
-    }
+//    void Update()
+//    {
+//        FollowTarget();
+//    }
 
-    public override void AttackPlayer()
-    {
-        base.AttackPlayer();
-    }
-}
+//    public override void AttackPlayer()
+//    {
+//        base.AttackPlayer();
+//    }
+//}

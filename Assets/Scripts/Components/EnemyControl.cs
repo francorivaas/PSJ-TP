@@ -2,22 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour, IBrain
+public class EnemyControl : MonoBehaviour, IBrain
 {
     [SerializeField] private ActorStats actorStats;
     private float distance = 2;
 
-    protected PlayerController player;
-    public PlayerController Player => player;
+    public PlayerController Player { get => player; set => player = value; }
+    private PlayerController player;
 
     private void Start()
     {
-        RecognizePlayer();    
+        RecognizePlayer();
     }
 
-    public virtual void RecognizePlayer()
+    public void RecognizePlayer()
     {
-        player = FindObjectOfType<PlayerController>();
+        Player = FindObjectOfType<PlayerController>();
+    }
+
+    private void Update()
+    {
+        FollowTarget();
+        AttackPlayer();
     }
 
     public void FollowTarget()
@@ -34,4 +40,5 @@ public class Enemy : MonoBehaviour, IBrain
     public virtual void AttackPlayer()
     {
     }
+
 }
