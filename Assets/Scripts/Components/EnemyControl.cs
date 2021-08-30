@@ -17,7 +17,7 @@ public class EnemyControl : MonoBehaviour, IBrain
 
     public void RecognizePlayer()
     {
-        Player = FindObjectOfType<PlayerController>();
+        player = GameManager.instance.Player;
     }
 
     private void Update()

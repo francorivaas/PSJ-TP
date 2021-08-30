@@ -4,8 +4,6 @@ using UnityEngine;
 
 public interface IBrain
 {
-    PlayerController Player { get; }
-
     void RecognizePlayer();
 
     void FollowTarget();
