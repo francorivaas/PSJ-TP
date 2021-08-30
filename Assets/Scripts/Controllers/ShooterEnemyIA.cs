@@ -28,7 +28,6 @@ public class ShooterEnemyIA : EnemyControl
     {
         if (Player != null)
         {
-            print("LOL");
             Instantiate(projectile, transform.position, Quaternion.identity);
             currentTimeToShoot = 0.0f;
             base.AttackPlayer();

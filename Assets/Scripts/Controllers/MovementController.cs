@@ -33,7 +33,7 @@ public class MovementController : MonoBehaviour
 
     private void Update()
     {
-        CheckRotation();
+        //CheckRotation();
         CheckMovement();
         CheckAiming();
         CheckSprint();
@@ -46,18 +46,18 @@ public class MovementController : MonoBehaviour
         //body.velocity = (transform.forward * moveForward) + (transform.right * moveSide) + (transform.up * body.velocity.y);
     }
 
-    private void CheckRotation()
-    {
-        rotX += Input.GetAxis("Mouse X") * Time.deltaTime * rotationSensibility.x;
-        rotY += Input.GetAxis("Mouse Y") * Time.deltaTime * rotationSensibility.y;
+    //private void CheckRotation()
+    //{
+    //    rotX += Input.GetAxis("Mouse X") * Time.deltaTime * rotationSensibility.x;
+    //    rotY += Input.GetAxis("Mouse Y") * Time.deltaTime * rotationSensibility.y;
 
-        if (rotX >= 360)
-        {
-            rotX = 0.0f;
-        }
+    //    if (rotX >= 360)
+    //    {
+    //        rotX = 0.0f;
+    //    }
 
-        transform.rotation = Quaternion.Euler(new Vector3(-rotY, rotX, 0.0f));
-    }
+    //    transform.rotation = Quaternion.Euler(new Vector3(-rotY, rotX, 0.0f));
+    //}
 
     private void CheckMovement()
     {
