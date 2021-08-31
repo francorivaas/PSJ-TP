@@ -26,7 +26,7 @@ public class ShooterEnemyIA : EnemyControl
 
     public override void AttackPlayer()
     {
-        if (Player != null)
+        if (player != null)
         {
             Instantiate(projectile, transform.position, Quaternion.identity);
             currentTimeToShoot = 0.0f;

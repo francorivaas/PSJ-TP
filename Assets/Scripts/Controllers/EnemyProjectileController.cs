@@ -7,12 +7,9 @@ public class EnemyProjectileController : EnemyControl
     private float speed = 5.0f;
     private int damage = 10;
 
-    // Start is called before the first frame update
-
-    // Update is called once per frame
     void Update()
     {
-        if (Player != null)
+        if (player != null)
         {
             transform.position += Vector3.forward * speed * Time.deltaTime;
         }
@@ -20,9 +17,9 @@ public class EnemyProjectileController : EnemyControl
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other == Player)
+        if (other == player)
         {
-            Player.GetComponent<LifeController>().TakeDamage(damage);
+            player.GetComponent<LifeController>().TakeDamage(damage);
         }
     }
 }

@@ -6,18 +6,15 @@ public class EnemyControl : MonoBehaviour, IBrain
 {
     [SerializeField] private ActorStats actorStats;
     private float distance = 2;
-
-    public PlayerController Player { get => player; set => player = value; }
-    private PlayerController player;
+    protected PlayerController player;
 
     private void Start()
     {
-        RecognizePlayer();
+        player = GameManager.instance.Player;
     }
 
     public void RecognizePlayer()
     {
-        player = GameManager.instance.Player;
     }
 
     private void Update()
@@ -40,5 +37,4 @@ public class EnemyControl : MonoBehaviour, IBrain
     public virtual void AttackPlayer()
     {
     }
-
 }

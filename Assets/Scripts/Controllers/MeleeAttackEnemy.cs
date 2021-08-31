@@ -9,7 +9,7 @@ public class MeleeAttackEnemy : EnemyControl
     public override void AttackPlayer()
     {
         base.AttackPlayer();
-        Player.GetComponent<LifeController>().TakeDamage(damage);
+        player.GetComponent<LifeController>().TakeDamage(damage);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -17,7 +17,6 @@ public class MeleeAttackEnemy : EnemyControl
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             AttackPlayer();
-            print("attascking player");
         }
     }
 }
