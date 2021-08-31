@@ -9,6 +9,16 @@ public class GameManager : MonoBehaviour
     public PlayerController Player => player;
     private PlayerController player;
 
+
+
+    //---------------------------------------------------------------------------------------//
+    private Spawner<EnemyControl> enemySpawner = new Spawner<EnemyControl>();
+    [SerializeField] private List<EnemyControl> enemyControlList = new List<EnemyControl>();
+
+    private float timeToSpawn = 3.0f;
+    private float currentTimeToSpawn = 0.0f;
+    //---------------------------------------------------------------------------------------//
+
     private void Awake()
     {
         if (instance != null)
@@ -18,7 +28,23 @@ public class GameManager : MonoBehaviour
         else
         {
             instance = this;
-            DontDestroyOnLoad(this);
+            DontDestroyOnLoad(gameObject);
+        }
+    }
+
+    private void Start()
+    {
+        currentTimeToSpawn = timeToSpawn;
+    }
+
+    private void Update()
+    {
+        currentTimeToSpawn += Time.deltaTime;
+        if (currentTimeToSpawn >= timeToSpawn)
+        {
+            EnemyControl e = enemySpawner.Create(enemyControlList[Random.Range(0, enemyControlList.Count)]);
+            e.transform.position = Vector3.forward * 4 + (Random.insideUnitSphere * 0.5f);
+            currentTimeToSpawn = 0.0f;
         }
     }
 

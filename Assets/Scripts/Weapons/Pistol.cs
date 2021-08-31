@@ -13,4 +13,18 @@ public class Pistol : Weapon
             b.SetAnOwner(this);
         }
     }
+
+    //public Pistol Clone()
+    //{
+    //    Pistol pistol = new Pistol();
+    //    return pistol;
+    //}
+
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.P))
+    //    {
+    //        Clone();
+    //    }
+    //}
 }
