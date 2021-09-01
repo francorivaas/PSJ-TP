@@ -44,13 +44,13 @@ public class BulletController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
-        //{
-        //    //= other.GetComponent<LifeController>()?.TakeDamage(owner.Damage);
-        //    //Destroy(gameObject, 0.1f);
+        if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        {
+            LifeController enemyLife = other.GetComponent<LifeController>();
+            enemyLife.TakeDamage(owner.Damage);
 
-        //    LifeController enemyLife = other.GetComponent<LifeController>();
-        //    enemyLife.TakeDamage(owner.Damage);   
-        //}
+            float delayTimeToDestroy = 0.1f;
+            Destroy(gameObject, delayTimeToDestroy);
+        }
     }
 }
