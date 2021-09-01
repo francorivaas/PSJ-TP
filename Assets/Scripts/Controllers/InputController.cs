@@ -12,7 +12,7 @@ public class InputController : MonoBehaviour
         player = GetComponent<MovementController>();    
     }
 
-    void Update()
+    private void Update()
     {
         #region PLAYER MOVEMENT
 
@@ -21,6 +21,24 @@ public class InputController : MonoBehaviour
         if (Input.GetKey(KeyCode.S)) player.Move(-transform.forward, "IsRunning", true);
         if (Input.GetKey(KeyCode.D)) player.Move(transform.right, "IsRunning", true);
 
+        if (Input.GetKeyUp(KeyCode.W)) player.Move(Vector3.zero, "IsRunning", false);
+        if (Input.GetKeyUp(KeyCode.A)) player.Move(Vector3.zero, "IsRunning", false);
+        if (Input.GetKeyUp(KeyCode.S)) player.Move(Vector3.zero, "IsRunning", false);
+        if (Input.GetKeyUp(KeyCode.D)) player.Move(Vector3.zero, "IsRunning", false);
+
         #endregion PLAYER MOVEMENT
+
+        #region PLAYER AIM
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            player.Aim(true, "IsAiming", true);
+        }
+        else if (Input.GetMouseButtonUp(1))
+        {
+            player.Aim(false, "IsAiming", false);
+        }
+
+        #endregion PLAYER AIM
     }
 }
