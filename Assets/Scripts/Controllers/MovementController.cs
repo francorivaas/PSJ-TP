@@ -33,6 +33,8 @@ public class MovementController : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(canMove);
+
         CheckRotation();
         CheckMovement();
         CheckAiming();
@@ -49,10 +51,15 @@ public class MovementController : MonoBehaviour
 
     }
 
-    public void Move(Vector3 direction)
+    public void Move(Vector3 direction, string animation, bool value)
     {
+        if (canMove)
+        {
+            body.velocity = direction * maxSpeed;
+            animator.SetBool(animation, value);
+        }
+
         //transform.position += direction * actorStats.Speed * Time.deltaTime;
-        body.velocity = direction * maxSpeed;
     }
 
     private void CheckRotation()
@@ -134,6 +141,22 @@ public class MovementController : MonoBehaviour
         {
             canMove = true;
             animator.SetBool("IsAiming", false);
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
+            canMove = true;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
+            canMove = false;
         }
     }
 }

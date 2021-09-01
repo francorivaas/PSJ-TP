@@ -15,10 +15,12 @@ public class InputController : MonoBehaviour
     void Update()
     {
         #region PLAYER MOVEMENT
-        if (Input.GetKey(KeyCode.W)) player.Move(transform.forward);
-        if (Input.GetKey(KeyCode.A)) player.Move(-transform.right);
-        if (Input.GetKey(KeyCode.S)) player.Move(-transform.forward);
-        if (Input.GetKey(KeyCode.D)) player.Move(transform.right);
+
+        if (Input.GetKey(KeyCode.W)) player.Move(transform.forward, "IsRunning", true);
+        if (Input.GetKey(KeyCode.A)) player.Move(-transform.right, "IsRunning", true);
+        if (Input.GetKey(KeyCode.S)) player.Move(-transform.forward, "IsRunning", true);
+        if (Input.GetKey(KeyCode.D)) player.Move(transform.right, "IsRunning", true);
+
         #endregion PLAYER MOVEMENT
     }
 }
