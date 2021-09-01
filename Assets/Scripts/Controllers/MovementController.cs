@@ -13,18 +13,26 @@ public class MovementController : MonoBehaviour
     private Animator animator;
 
     private bool isMoving;
+
+    public bool CanMove { get => canMove; set => canMove = value; }
     private bool canMove;
+
+    public bool IsAiming { get => isAiming; set => isAiming = value; }
+    private bool isAiming;
 
     private float maxSpeed;
 
     private void Start()
     {
         #region Get Components
+
         body = GetComponentInParent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
+
         #endregion Get Components
 
         canMove = true;
+        isAiming = false;
         maxSpeed = actorStats.Speed;
     }
 
@@ -43,11 +51,17 @@ public class MovementController : MonoBehaviour
 
         //transform.position += direction * actorStats.Speed * Time.deltaTime;
     }
-    public void Aim(bool value, string animation, bool animationValue)
+
+    public void Aim()
     {
-        canMove = value;
-        animator.SetBool(animation, animationValue);
-    } 
+        animator.SetBool("IsAiming", true);
+    }
+    
+    public void StopAim()
+    {
+        animator.SetBool("IsAiming", false);
+    }
+
     private void CheckRotation()
     {
         rotX += Input.GetAxis("Mouse X") * Time.deltaTime * rotationSensibility.x;
@@ -76,7 +90,7 @@ public class MovementController : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground") && !isAiming)
         {
             canMove = true;
         }
@@ -84,7 +98,7 @@ public class MovementController : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground") && !isAiming)
         {
             canMove = false;
         }

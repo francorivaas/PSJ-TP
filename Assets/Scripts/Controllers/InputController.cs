@@ -32,11 +32,12 @@ public class InputController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1))
         {
-            player.Aim(true, "IsAiming", true);
+            player.Aim();
         }
+
         else if (Input.GetMouseButtonUp(1))
         {
-            player.Aim(false, "IsAiming", false);
+            player.StopAim();
         }
 
         #endregion PLAYER AIM

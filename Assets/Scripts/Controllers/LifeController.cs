@@ -13,15 +13,27 @@ public class LifeController : MonoBehaviour
     [SerializeField] private Text lifeText;
     public bool isPlayer;
 
+    [SerializeField] private Animator animator;
+    [SerializeField] private string TakeDamageAnimation = "";
+
     private void Start()
     {
+        //animator = GetComponentInChildren<Animator>();
+
         _currentLife = actorStats.MaxLife;
     }
 
     public virtual void TakeDamage(int damage)
     {
         _currentLife -= damage;
+
+        if (!isPlayer)
+        {
+            animator.SetTrigger(TakeDamageAnimation);
+        }
+
         if (_currentLife <= 0) Die();
+
     }
 
     private void Die()
