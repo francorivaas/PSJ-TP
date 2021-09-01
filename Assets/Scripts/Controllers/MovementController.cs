@@ -38,12 +38,21 @@ public class MovementController : MonoBehaviour
         CheckAiming();
         CheckSprint();
 
+        #region MOVING WITH RB
         //if (isMoving)
         //{
         //    moveForward = Input.GetAxisRaw("Vertical") * actorStats.Speed;    
         //    moveSide = Input.GetAxisRaw("Horizontal") * actorStats.Speed;
         //}
         //body.velocity = (transform.forward * moveForward) + (transform.right * moveSide) + (transform.up * body.velocity.y);
+        #endregion MOVING WITH RB
+
+    }
+
+    public void Move(Vector3 direction)
+    {
+        //transform.position += direction * actorStats.Speed * Time.deltaTime;
+        body.velocity = direction * maxSpeed;
     }
 
     private void CheckRotation()
@@ -61,32 +70,36 @@ public class MovementController : MonoBehaviour
 
     private void CheckMovement()
     {
-        if (canMove)
-        {
-            if (Input.GetKey(KeyCode.W))
-            {
-                isMoving = true;
-                body.velocity = transform.forward * maxSpeed;
-            }
+        //if (canMove)
+        //{
+            #region OBSOLETE CODE
+            //if (Input.GetKey(KeyCode.W))
+            //{
+            //    isMoving = true;
+            //    body.velocity = transform.forward * maxSpeed;
+            //}
 
-            else if (Input.GetKey(KeyCode.S))
-            {
-                isMoving = true;
-                body.velocity = -transform.forward * maxSpeed;
-            }
+            //else if (Input.GetKey(KeyCode.S))
+            //{
+            //    isMoving = true;
+            //    body.velocity = -transform.forward * maxSpeed;
+            //}
 
-            else if (Input.GetKey(KeyCode.D))
-            {
-                isMoving = true;
-                body.velocity = transform.right * maxSpeed;
-            }
+            //else if (Input.GetKey(KeyCode.D))
+            //{
+            //    isMoving = true;
+            //    body.velocity = transform.right * maxSpeed;
+            //}
 
-            else if (Input.GetKey(KeyCode.A))
-            {
-                isMoving = true;
-                body.velocity = -transform.right * maxSpeed;
-            }
-            else if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.W))
+            //else if (Input.GetKey(KeyCode.A))
+            //{
+            //    isMoving = true;
+            //    body.velocity = -transform.right * maxSpeed;
+            //}
+            /*else */
+            #endregion OBSOLETE CODE
+
+            if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.W))
             {
                 isMoving = false;
                 body.velocity = Vector3.zero;
@@ -94,7 +107,7 @@ public class MovementController : MonoBehaviour
             }
 
             if (isMoving) animator.SetBool("IsRunning", true);
-        }
+        //}
     }
 
     private void CheckSprint()

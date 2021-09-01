@@ -2,17 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(MovementController))]
 public class InputController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private MovementController player;
+
+    private void Start()
     {
-        
+        player = GetComponent<MovementController>();    
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        #region PLAYER MOVEMENT
+        if (Input.GetKey(KeyCode.W)) player.Move(transform.forward);
+        if (Input.GetKey(KeyCode.A)) player.Move(-transform.right);
+        if (Input.GetKey(KeyCode.S)) player.Move(-transform.forward);
+        if (Input.GetKey(KeyCode.D)) player.Move(transform.right);
+        #endregion PLAYER MOVEMENT
     }
 }
