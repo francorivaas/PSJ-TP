@@ -22,7 +22,6 @@ public class EnemyController : MonoBehaviour, IBrain
     {
     }
 
-
     public virtual void FollowTarget()
     {
     }
