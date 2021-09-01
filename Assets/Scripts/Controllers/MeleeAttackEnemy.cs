@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MeleeAttackEnemy : EnemyControl
+public class MeleeAttackEnemy : EnemyController
 {
     private int damage = 10;
 

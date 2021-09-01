@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShooterEnemyIA : EnemyControl
+public class ShooterEnemyIA : EnemyController
 {
     [SerializeField] private GameObject projectile;
     private float timeToShoot = 2.0f;

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    private Spawner<EnemyControl> enemySpawner = new Spawner<EnemyControl>();
-    [SerializeField] private List<EnemyControl> enemyControlList = new List<EnemyControl>();
+    private Spawner<EnemyController> enemySpawner = new Spawner<EnemyController>();
+    [SerializeField] private List<EnemyController> enemyControlList = new List<EnemyController>();
 
     private float timeToSpawn = 5.0f;
     private float currentTimeToSpawn = 0.0f;
@@ -20,7 +20,7 @@ public class EnemyManager : MonoBehaviour
         currentTimeToSpawn += Time.deltaTime;
         if (currentTimeToSpawn >= timeToSpawn)
         {
-            EnemyControl e = enemySpawner.Create(enemyControlList[Random.Range(0, enemyControlList.Count)]);
+            EnemyController e = enemySpawner.Create(enemyControlList[Random.Range(0, enemyControlList.Count)]);
             e.transform.position = Vector3.forward * 4 + (Random.insideUnitSphere * 0.5f);
             currentTimeToSpawn = 0.0f;
         }

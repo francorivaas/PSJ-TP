@@ -2,29 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyControl : MonoBehaviour, IBrain
+public class EnemyMovementController : EnemyController
 {
-    [SerializeField] private ActorStats actorStats;
-    private float distance = 2;
-    protected PlayerController player;
-
-    private void Start()
-    {
-        player = GameManager.instance.Player;
-    }
-
-    public void RecognizePlayer()
-    {
-    }
+    private float distance = 2.0f;
 
     private void Update()
     {
         FollowTarget();
-        AttackPlayer();
     }
 
-    public void FollowTarget()
+    public override void FollowTarget()
     {
+        base.FollowTarget();
         if (player != null)
         {
             transform.LookAt(player.transform);
@@ -32,9 +21,5 @@ public class EnemyControl : MonoBehaviour, IBrain
             if (Vector3.Distance(transform.position, player.transform.position) > distance)
                 transform.position = Vector3.MoveTowards(transform.position, player.transform.position, actorStats.Speed * Time.deltaTime);
         }
-    }
-
-    public virtual void AttackPlayer()
-    {
     }
 }
