@@ -5,22 +5,17 @@ using UnityEngine;
 public class MovementController : MonoBehaviour
 {
     [SerializeField] private ActorStats actorStats;
-    private float rotX;
-    private float rotY;
     [SerializeField] private Vector3 rotationSensibility;
 
     private Rigidbody body;
     private Animator animator;
 
-    private bool isMoving;
-
-    public bool CanMove { get => canMove; set => canMove = value; }
-    private bool canMove;
-
-    public bool IsAiming { get => isAiming; set => isAiming = value; }
-    private bool isAiming;
-
+    private float rotX;
+    private float rotY;
     private float maxSpeed;
+
+    private bool canMove;
+    private bool isAiming;
 
     private void Start()
     {
@@ -31,16 +26,17 @@ public class MovementController : MonoBehaviour
 
         #endregion Get Components
 
+        maxSpeed = actorStats.Speed;
+
         canMove = true;
         isAiming = false;
-        maxSpeed = actorStats.Speed;
     }
 
     private void Update()
     {
         CheckRotation();
-        CheckSprint();
     }
+
     public void Move(Vector3 direction, string animation, bool value)
     {
         if (canMove)
@@ -48,17 +44,17 @@ public class MovementController : MonoBehaviour
             body.velocity = direction * maxSpeed;
             animator.SetBool(animation, value);
         }
-
-        //transform.position += direction * actorStats.Speed * Time.deltaTime;
     }
 
     public void Aim()
     {
+        isAiming = true;
         animator.SetBool("IsAiming", true);
     }
     
     public void StopAim()
     {
+        isAiming = false;
         animator.SetBool("IsAiming", false);
     }
 
@@ -74,17 +70,6 @@ public class MovementController : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(new Vector3(-rotY, rotX, 0.0f));
     }
-    private void CheckSprint()
-    {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && isMoving)
-        {
-            maxSpeed = maxSpeed *= 1.5f;
-        }
-        if (Input.GetKeyUp(KeyCode.LeftShift) && isMoving)
-        {
-            maxSpeed = actorStats.Speed;
-        }
-    }
 
     #region COLLISION CHECK WITH GROUND
 
@@ -98,7 +83,7 @@ public class MovementController : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground") && !isAiming)
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground") || isAiming)
         {
             canMove = false;
         }
