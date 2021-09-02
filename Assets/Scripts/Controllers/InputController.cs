@@ -30,15 +30,8 @@ public class InputController : MonoBehaviour
 
         #region PLAYER AIM
 
-        if (Input.GetMouseButtonDown(1))
-        {
-            player.Aim();
-        }
-
-        else if (Input.GetMouseButtonUp(1))
-        {
-            player.StopAim();
-        }
+        if (Input.GetMouseButtonDown(1)) player.Aim();
+        else if (Input.GetMouseButtonUp(1)) player.StopAim();
 
         #endregion PLAYER AIM
     }
