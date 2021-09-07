@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4307917997648320253}
   m_Layer: 0
-  m_Name: Bullet_Holder
+  m_Name: Enemy_Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -157,3 +157,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  lifetime: 2

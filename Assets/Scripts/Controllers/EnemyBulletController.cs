@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyBulletController : MonoBehaviour
 {
     [SerializeField] private float speed;
-    private float lifetime = 10;
+    [SerializeField] private float lifetime;
 
     private PlayerController player;
 
@@ -25,28 +25,30 @@ public class EnemyBulletController : MonoBehaviour
         Initialize();
     }
 
+    void Update()
+    {
+        Vector3 playerPosition = player.transform.position - transform.position;
+        transform.position += playerPosition * speed * Time.deltaTime;
+
+        lifetime -= Time.deltaTime;
+        if (lifetime <= 0)
+        {
+            print("destroy bala");
+            Destroy(gameObject);
+        }
+    }
+
     private void Initialize()
     {
         col.isTrigger = true;
         rb.isKinematic = true;
     }
 
-    void Update()
-    {
-        Vector3 playerPosition = player.transform.position - transform.position;
-
-        transform.position += playerPosition * speed * Time.deltaTime;
-        lifetime -= Time.deltaTime;
-        if (lifetime <= 0)
-        {
-            Destroy(gameObject);
-        }
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
+            print("choco player");
             LifeController playerLife = other.GetComponent<LifeController>();
             playerLife.TakeDamage(damage);
 

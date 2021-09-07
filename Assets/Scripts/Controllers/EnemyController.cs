@@ -17,7 +17,7 @@ public class EnemyController : MonoBehaviour, IBrain
 
     private void Life_Death()
     {
-        Debug.Log("acá murió un enemigo");
+        Destroy(gameObject);
     }
 
     private void Update()

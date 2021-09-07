@@ -4860,11 +4860,11 @@ GameObject:
   - component: {fileID: 2953519727232121598}
   - component: {fileID: 693878087198602011}
   - component: {fileID: 6655210913159431990}
-  - component: {fileID: 4999550304430561635}
   - component: {fileID: 4765143223320504650}
+  - component: {fileID: 4999550304430561635}
   - component: {fileID: 7261726511533532384}
   m_Layer: 3
-  m_Name: Enemy Melee
+  m_Name: Shooting Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4929,6 +4929,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actorStats: {fileID: 11400000, guid: a14daf7ade8cdb1408094676712d752a, type: 2}
+--- !u!114 &4765143223320504650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4076762514375276328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bf8686d59497de4fb30b53f3e3225d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actorStats: {fileID: 11400000, guid: a14daf7ade8cdb1408094676712d752a, type: 2}
 --- !u!114 &4999550304430561635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4943,23 +4956,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actorStats: {fileID: 11400000, guid: a14daf7ade8cdb1408094676712d752a, type: 2}
   _currentLife: 0
-  lifeText: {fileID: 0}
-  isPlayer: 0
-  animator: {fileID: 6904179702707100714}
-  TakeDamageAnimation: TakeDamage
---- !u!114 &4765143223320504650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4076762514375276328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bf8686d59497de4fb30b53f3e3225d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actorStats: {fileID: 11400000, guid: a14daf7ade8cdb1408094676712d752a, type: 2}
 --- !u!95 &7261726511533532384
 Animator:
   serializedVersion: 3

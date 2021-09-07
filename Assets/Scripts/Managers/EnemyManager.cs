@@ -7,7 +7,7 @@ public class EnemyManager : MonoBehaviour
     private Spawner<EnemyController> enemySpawner = new Spawner<EnemyController>();
     [SerializeField] private List<EnemyController> enemyControlList = new List<EnemyController>();
 
-    private float timeToSpawn = 500.0f;
+    private float timeToSpawn = 10.0f;
     private float currentTimeToSpawn = 0.0f;
 
     private void Start()
