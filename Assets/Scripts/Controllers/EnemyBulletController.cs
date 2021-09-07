@@ -47,8 +47,6 @@ public class EnemyBulletController : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            print("encontré un re plasher");
-
             LifeController playerLife = other.GetComponent<LifeController>();
             playerLife.TakeDamage(damage);
 

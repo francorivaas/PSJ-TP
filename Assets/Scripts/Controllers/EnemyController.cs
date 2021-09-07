@@ -6,10 +6,18 @@ public class EnemyController : MonoBehaviour, IBrain
 {
     [SerializeField] protected ActorStats actorStats;
     protected PlayerController player;
+    private LifeController life;
 
     private void Start()
     {
         player = GameManager.instance.Player;
+        life = GetComponent<LifeController>();
+        life.Death += Life_Death;
+    }
+
+    private void Life_Death()
+    {
+        Debug.Log("acá murió un enemigo");
     }
 
     private void Update()
