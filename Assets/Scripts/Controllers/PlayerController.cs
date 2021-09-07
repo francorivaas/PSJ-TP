@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private Text lifeAmmountText;
     [SerializeField] private Weapon weapon;
     public Weapon Weapon { get => weapon; set => weapon = value; }
+
     private LifeController life;
 
     private void Start()
@@ -31,5 +34,7 @@ public class PlayerController : MonoBehaviour
         {
             weapon.Reload();
         }
+
+        lifeAmmountText.text = life.CurrentLife.ToString();
     }
 }

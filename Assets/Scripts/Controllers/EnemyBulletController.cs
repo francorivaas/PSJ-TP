@@ -48,10 +48,7 @@ public class EnemyBulletController : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            print("choco player");
-            LifeController playerLife = other.GetComponent<LifeController>();
-            playerLife.TakeDamage(damage);
-
+            other.GetComponent<LifeController>().TakeDamage(damage);
             Destroy(gameObject);
         }
     }
