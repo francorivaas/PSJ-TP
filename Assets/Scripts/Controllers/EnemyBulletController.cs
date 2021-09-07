@@ -8,9 +8,10 @@ public class EnemyBulletController : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float lifetime;
 
-    private int damage = 10;
-
     private PlayerController player;
+
+    private int damage;
+
     private Collider col;
     private Rigidbody rb;
 
@@ -32,6 +33,7 @@ public class EnemyBulletController : MonoBehaviour
         lifetime -= Time.deltaTime;
         if (lifetime <= 0)
         {
+            print("destroy bala");
             Destroy(gameObject);
         }
     }
@@ -46,9 +48,7 @@ public class EnemyBulletController : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            LifeController playerLife = other.GetComponent<LifeController>();
-            playerLife.TakeDamage(damage);
-
+            other.GetComponent<LifeController>().TakeDamage(damage);
             Destroy(gameObject);
         }
     }
