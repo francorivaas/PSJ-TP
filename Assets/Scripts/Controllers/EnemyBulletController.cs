@@ -10,7 +10,7 @@ public class EnemyBulletController : MonoBehaviour
 
     private PlayerController player;
 
-    private int damage;
+    private int damage = 30;
 
     private Collider col;
     private Rigidbody rb;
@@ -49,7 +49,7 @@ public class EnemyBulletController : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             other.GetComponent<LifeController>().TakeDamage(damage);
-            Destroy(gameObject);
+            Destroy(gameObject, 0.1f);
         }
     }
 }

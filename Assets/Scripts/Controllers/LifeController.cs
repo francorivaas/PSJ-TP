@@ -5,7 +5,7 @@ public class LifeController : MonoBehaviour
 {
     [SerializeField] private ActorStats actorStats;
 
-    public int CurrentLife { get => _currentLife; }
+    public int CurrentLife { get => _currentLife; set => _currentLife = value; }
     [SerializeField] private int _currentLife;
 
     //public event UnityAction GetDamage;
@@ -14,6 +14,10 @@ public class LifeController : MonoBehaviour
     private void Start()
     {
         _currentLife = actorStats.MaxLife;
+    }
+
+    private void Update()
+    {
     }
 
     public virtual void TakeDamage(int damage)
