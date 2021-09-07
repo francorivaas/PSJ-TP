@@ -10,7 +10,7 @@ public class EnemyBulletController : MonoBehaviour
 
     private PlayerController player;
 
-    private int damage;
+    private int damage = 10;
 
     private Collider col;
     private Rigidbody rb;
