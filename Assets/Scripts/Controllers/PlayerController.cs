@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Text lifeAmmountText;
     [SerializeField] private Weapon weapon;
+    [SerializeField] private Animator animator;
+
     public Weapon Weapon { get => weapon; set => weapon = value; }
 
     private LifeController life;
@@ -20,7 +22,7 @@ public class PlayerController : MonoBehaviour
 
     private void Life_Death()
     {
-        Debug.Log("lol");
+        animator.SetTrigger("IsDead");
     }
 
     private void Update()
