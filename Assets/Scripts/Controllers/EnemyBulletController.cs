@@ -33,7 +33,6 @@ public class EnemyBulletController : MonoBehaviour
         lifetime -= Time.deltaTime;
         if (lifetime <= 0)
         {
-            print("destroy bala");
             Destroy(gameObject);
         }
     }
