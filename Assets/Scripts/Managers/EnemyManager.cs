@@ -33,7 +33,7 @@ public class EnemyManager : MonoBehaviour
             if (currentTimeToSpawn >= timeToSpawn)
             {
                 EnemyController e = enemySpawner.Create(enemyControlList[Random.Range(0, enemyControlList.Count)]);
-                e.transform.position = Vector3.forward * 4 + (Random.insideUnitSphere * 0.5f);
+                e.transform.position = transform.position; /*Vector3.forward + (Random.insideUnitSphere * 0.5f);*/
                 currentTimeToSpawn = 0.0f;
 
                 enemiesToSpawn--;
