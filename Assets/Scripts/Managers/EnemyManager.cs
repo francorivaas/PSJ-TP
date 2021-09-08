@@ -7,22 +7,44 @@ public class EnemyManager : MonoBehaviour
     private Spawner<EnemyController> enemySpawner = new Spawner<EnemyController>();
     [SerializeField] private List<EnemyController> enemyControlList = new List<EnemyController>();
 
+    [SerializeField] private int enemiesToSpawn;
+
     private float timeToSpawn = 10.0f;
     private float currentTimeToSpawn = 0.0f;
+
+    private bool canSpawn;
 
     private void Start()
     {
         currentTimeToSpawn = timeToSpawn;
-    }
 
-    void Update()
+        canSpawn = true;
+    }
+    private void Update()
     {
-        currentTimeToSpawn += Time.deltaTime;
-        if (currentTimeToSpawn >= timeToSpawn)
+        Spawn();
+        CheckEnemiesLeft();
+    }
+    private void Spawn()
+    {
+        if (canSpawn)
         {
-            EnemyController e = enemySpawner.Create(enemyControlList[Random.Range(0, enemyControlList.Count)]);
-            e.transform.position = Vector3.forward * 4 + (Random.insideUnitSphere * 0.5f);
-            currentTimeToSpawn = 0.0f;
+            currentTimeToSpawn += Time.deltaTime;
+            if (currentTimeToSpawn >= timeToSpawn)
+            {
+                EnemyController e = enemySpawner.Create(enemyControlList[Random.Range(0, enemyControlList.Count)]);
+                e.transform.position = Vector3.forward * 4 + (Random.insideUnitSphere * 0.5f);
+                currentTimeToSpawn = 0.0f;
+
+                enemiesToSpawn--;
+            }
+        }
+    }
+    private void CheckEnemiesLeft()
+    {
+        if (enemiesToSpawn <= 0)
+        {
+            canSpawn = false;
         }
     }
 }

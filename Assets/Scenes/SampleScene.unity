@@ -268,6 +268,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyControlList:
   - {fileID: 6655210913159431990, guid: b34e9556eaa52f74d9dcd59754c161a9, type: 3}
+  enemiesToSpawn: 3
 --- !u!1 &400657790
 GameObject:
   m_ObjectHideFlags: 0
