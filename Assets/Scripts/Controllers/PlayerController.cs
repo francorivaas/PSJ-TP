@@ -13,16 +13,20 @@ public class PlayerController : MonoBehaviour
 
     private LifeController life;
 
+    private bool canCount;
+    private float timeToChangeScene = 1.0f;
+
     private void Start()
     {
         life = GetComponent<LifeController>();
-
+        canCount = false;
         life.Death += Life_Death;    
     }
 
     private void Life_Death()
     {
         animator.SetTrigger("IsDead");
+        canCount = true;
     }
 
     private void Update()
@@ -38,5 +42,15 @@ public class PlayerController : MonoBehaviour
         }
 
         lifeAmmountText.text = life.CurrentLife.ToString();
+
+        if (canCount)
+        {
+            timeToChangeScene -= Time.deltaTime;
+            if (timeToChangeScene <= 0)
+            {
+                GameManager.instance.LoadGameOverScene();
+                canCount = false;
+            }
+        } 
     }
 }

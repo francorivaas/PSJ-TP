@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,10 +9,6 @@ public class GameManager : MonoBehaviour
 
     public PlayerController Player => player;
     private PlayerController player;
-
-
-
-
 
     private void Awake()
     {
@@ -29,5 +26,15 @@ public class GameManager : MonoBehaviour
     public void SetPlayer(PlayerController player)
     {
         this.player = player;
+    }
+
+    public void LoadGameOverScene()
+    {
+        SceneManager.LoadScene("GameOverScene");
+    }
+
+    public void LoadVictoryScene()
+    {
+        SceneManager.LoadScene("VictoryScreen");
     }
 }
