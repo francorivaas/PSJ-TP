@@ -39,7 +39,7 @@ public class MovementController : MonoBehaviour
 
     public void Move(Vector3 direction, string animation, bool value)
     {
-        if (canMove)
+        if (canMove && !animator.GetBool("IsAiming"))
         {
             body.velocity = direction * maxSpeed;
             animator.SetBool(animation, value);
@@ -48,7 +48,7 @@ public class MovementController : MonoBehaviour
 
     public void Aim()
     {
-        isAiming = true;
+        canMove = false;
         animator.SetBool("IsAiming", true);
     }
     
@@ -83,7 +83,7 @@ public class MovementController : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground") || isAiming)
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
             canMove = false;
         }
