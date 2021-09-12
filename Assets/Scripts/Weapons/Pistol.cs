@@ -5,6 +5,9 @@ using UnityEngine;
 public class Pistol : Weapon
 {
     [SerializeField] private Camera cam;
+    [SerializeField] private ParticleSystem muzzleFlash;
+    [SerializeField] private Light pointLight;
+
     private float range = 100f;
 
     public override void Shoot()
@@ -15,10 +18,13 @@ public class Pistol : Weapon
             //BulletController b = Instantiate(bullet, firePoint.transform.position, Quaternion.identity);
             //b.SetAnOwner(this);
 
+            muzzleFlash.Play();
+
             RaycastHit hit;
             if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range))
             {
                 Debug.Log(hit.transform.name);
+
 
                 var go = hit.transform.gameObject;
                 if (go.layer == LayerMask.NameToLayer("Enemy"))
@@ -27,6 +33,10 @@ public class Pistol : Weapon
                     lc.TakeDamage(damage);
                 }
             }
+        }
+        else if (!canShoot)
+        {
+            muzzleFlash.Stop();
         }
     }
 }
