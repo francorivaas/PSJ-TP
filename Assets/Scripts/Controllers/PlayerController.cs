@@ -16,6 +16,11 @@ public class PlayerController : MonoBehaviour
     private bool canCount;
     private float timeToChangeScene = 1.0f;
 
+    private void Awake()
+    {
+        GameManager.instance.SetPlayer(this);
+    }
+
     private void Start()
     {
         life = GetComponent<LifeController>();

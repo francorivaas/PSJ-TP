@@ -8,9 +8,13 @@ public class EnemyController : MonoBehaviour, IBrain
     protected PlayerController player;
     private LifeController life;
 
+    private void Awake()
+    {
+        player = GameManager.instance.Player;    
+    }
+
     private void Start()
     {
-        player = GameManager.instance.Player;
         life = GetComponent<LifeController>();
         life.Death += Life_Death;
     }

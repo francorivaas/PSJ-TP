@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
     }
-
+    
     public void SetPlayer(PlayerController player)
     {
         this.player = player;

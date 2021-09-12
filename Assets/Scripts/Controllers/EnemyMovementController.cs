@@ -5,6 +5,12 @@ using UnityEngine;
 public class EnemyMovementController : EnemyController
 {
     private float distance = 2.0f;
+    private Animator animator;
+    
+    private void Start()
+    {
+        animator = GetComponent<Animator>();    
+    }
 
     private void Update()
     {
@@ -13,13 +19,14 @@ public class EnemyMovementController : EnemyController
 
     public override void FollowTarget()
     {
-        base.FollowTarget();
         if (player != null)
         {
             transform.LookAt(player.transform);
 
             if (Vector3.Distance(transform.position, player.transform.position) > distance)
+            {
                 transform.position = Vector3.MoveTowards(transform.position, player.transform.position, actorStats.Speed * Time.deltaTime);
+            }
         }
     }
 }
