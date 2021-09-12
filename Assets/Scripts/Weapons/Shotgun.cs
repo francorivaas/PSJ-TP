@@ -8,7 +8,7 @@ public class Shotgun : Weapon
 
     public override void Shoot()
     {
-        if (canShoot)
+        if (CanShoot)
         {
             currentAmmo--;
 

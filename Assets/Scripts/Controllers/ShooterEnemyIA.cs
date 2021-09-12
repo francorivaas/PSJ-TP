@@ -5,8 +5,8 @@ using UnityEngine;
 public class ShooterEnemyIA : MonoBehaviour
 {
     [SerializeField] private GameObject projectile;
+    [SerializeField] private float timeToShoot = 2.0f;
 
-    private float timeToShoot = 2.0f;
     private float currentTimeToShoot = 0.0f;
 
     private void Start()

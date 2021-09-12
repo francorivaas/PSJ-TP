@@ -4848,6 +4848,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 1962863911707598981, guid: d32e1749cd3e0494db998f80a6658746, type: 3}
+  timeToShoot: 10
 --- !u!1 &4076762514375276328
 GameObject:
   m_ObjectHideFlags: 0

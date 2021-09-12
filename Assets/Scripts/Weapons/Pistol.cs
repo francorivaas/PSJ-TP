@@ -12,7 +12,7 @@ public class Pistol : Weapon
 
     public override void Shoot()
     {
-        if (canShoot)
+        if (CanShoot)
         {
             currentAmmo--;
             //BulletController b = Instantiate(bullet, firePoint.transform.position, Quaternion.identity);
@@ -33,10 +33,6 @@ public class Pistol : Weapon
                     lc.TakeDamage(damage);
                 }
             }
-        }
-        else if (!canShoot)
-        {
-            muzzleFlash.Stop();
         }
     }
 }

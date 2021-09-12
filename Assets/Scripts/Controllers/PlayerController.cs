@@ -31,11 +31,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-            weapon.Shoot();
-
-        if (Input.GetKey(KeyCode.R))
-            weapon.Reload();
+        WeaponInputs();
 
         lifeAmmountText.text = life.CurrentLife.ToString();
 
@@ -48,5 +44,14 @@ public class PlayerController : MonoBehaviour
                 GameManager.instance.LoadGameOverScene();
             }
         } 
+    }
+
+    private void WeaponInputs()
+    {
+        if (Input.GetMouseButtonDown(0))
+            weapon.Shoot();
+
+        if (Input.GetKey(KeyCode.R))
+            weapon.Reload();
     }
 }
