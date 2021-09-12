@@ -32,14 +32,10 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
-        {
             weapon.Shoot();
-        }
 
         if (Input.GetKey(KeyCode.R))
-        {
             weapon.Reload();
-        }
 
         lifeAmmountText.text = life.CurrentLife.ToString();
 
@@ -48,8 +44,8 @@ public class PlayerController : MonoBehaviour
             timeToChangeScene -= Time.deltaTime;
             if (timeToChangeScene <= 0)
             {
-                GameManager.instance.LoadGameOverScene();
                 canCount = false;
+                GameManager.instance.LoadGameOverScene();
             }
         } 
     }
