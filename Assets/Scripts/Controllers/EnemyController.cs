@@ -5,12 +5,15 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour, IBrain
 {
     [SerializeField] protected ActorStats actorStats;
+    private Animator animator;
+
     protected PlayerController player;
     private LifeController life;
 
     private void Awake()
     {
-        player = GameManager.instance.Player;    
+        player = GameManager.instance.Player;
+        animator = GetComponent<Animator>();
     }
 
     private void Start()
@@ -27,7 +30,7 @@ public class EnemyController : MonoBehaviour, IBrain
     private void Update()
     {
         FollowTarget();
-        AttackPlayer();
+        
     }
 
     public void RecognizePlayer()
@@ -36,10 +39,16 @@ public class EnemyController : MonoBehaviour, IBrain
 
     public virtual void FollowTarget()
     {
+        if(animator != null)
+            animator.SetBool("IsRunning", true);
     }
 
     public virtual void AttackPlayer()
     {
+        if (animator != null)
+        {
+            animator.SetTrigger("IsAttacking");
+        }
     }
 
     private void OnCollisionEnter(Collision collision)

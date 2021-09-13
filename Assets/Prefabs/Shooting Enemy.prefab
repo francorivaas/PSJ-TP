@@ -4930,6 +4930,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actorStats: {fileID: 11400000, guid: a14daf7ade8cdb1408094676712d752a, type: 2}
+  animator: {fileID: 7261726511533532384}
 --- !u!114 &4765143223320504650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4943,6 +4944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actorStats: {fileID: 11400000, guid: a14daf7ade8cdb1408094676712d752a, type: 2}
+  animator: {fileID: 7261726511533532384}
   maxDistance: 2
   minDistance: 20
 --- !u!114 &4999550304430561635

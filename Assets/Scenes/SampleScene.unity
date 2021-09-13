@@ -198,7 +198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyControlList:
   - {fileID: 4667999145150360337, guid: 4eddffe88b63757439c9ea84f7c54728, type: 3}
-  enemiesToSpawn: 5
+  enemiesToSpawn: 1
   timeToSpawn: 10
 --- !u!4 &59624225
 Transform:
@@ -7406,7 +7406,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1612716786}
-  m_LocalRotation: {x: 0.32326588, y: -0.000023036007, z: 0.00000786927, w: 0.9463082}
+  m_LocalRotation: {x: 0.32326588, y: -0.000022989952, z: 0.000007853539, w: 0.9463082}
   m_LocalPosition: {x: -1.039854, y: 0.18999982, z: -0.7200012}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

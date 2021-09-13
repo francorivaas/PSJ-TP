@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DamageArea : MonoBehaviour
+public class DamageArea : EnemyController
 {
     [SerializeField] private int damage;
 
-    private float timeToDamage = 1.5f;
+    private float timeToDamage = 3f;
     private float currentTimeToDamage = 0.0f;
 
     private bool canDamage;
@@ -33,10 +33,15 @@ public class DamageArea : MonoBehaviour
 
         if (canDamage && layer == LayerMask.NameToLayer("Player"))
         {
-            canDamage = false;
-
-            LifeController pl = other.GetComponent<LifeController>();
-            pl.TakeDamage(damage);
+            AttackPlayer();
         }
+    }
+
+    public override void AttackPlayer()
+    {
+        base.AttackPlayer();
+
+        canDamage = false;
+        player.GetComponent<LifeController>().TakeDamage(damage);
     }
 }

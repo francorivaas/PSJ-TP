@@ -1171,6 +1171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actorStats: {fileID: 11400000, guid: a14daf7ade8cdb1408094676712d752a, type: 2}
+  animator: {fileID: 1971390822627214429}
 --- !u!114 &4667999145150360336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1184,6 +1185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actorStats: {fileID: 11400000, guid: a14daf7ade8cdb1408094676712d752a, type: 2}
+  animator: {fileID: 0}
   maxDistance: 2
   minDistance: 20
 --- !u!114 &3525844479252575038
@@ -1225,6 +1227,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d71472dace707e44d829ae5afdb694d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actorStats: {fileID: 0}
+  animator: {fileID: 1971390822627214429}
   damage: 5
 --- !u!1 &1971390822636615579
 GameObject:
