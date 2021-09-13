@@ -1069,6 +1069,8 @@ GameObject:
   - component: {fileID: 4667999145150360337}
   - component: {fileID: 4667999145150360336}
   - component: {fileID: 3525844479252575038}
+  - component: {fileID: 2898171330112259064}
+  - component: {fileID: 8455927822281968930}
   m_Layer: 3
   m_Name: Melee Enemy
   m_TagString: Untagged
@@ -1089,6 +1091,7 @@ Transform:
   m_Children:
   - {fileID: 1971390822637104063}
   - {fileID: 1971390822637104057}
+  - {fileID: 5045803813698010149}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1153,7 +1156,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &4667999145150360337
 MonoBehaviour:
@@ -1197,6 +1200,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actorStats: {fileID: 11400000, guid: a14daf7ade8cdb1408094676712d752a, type: 2}
   _currentLife: 0
+--- !u!65 &2898171330112259064
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1971390822636615577}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.46146798, z: 0.37615663}
+  m_Center: {x: 0, y: 0.269266, z: 0.3119217}
+--- !u!114 &8455927822281968930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1971390822636615577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d71472dace707e44d829ae5afdb694d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5
 --- !u!1 &1971390822636615579
 GameObject:
   m_ObjectHideFlags: 0
@@ -2377,4 +2406,34 @@ Transform:
   - {fileID: 1971390822637104027}
   m_Father: {fileID: 1971390822637104029}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6537118270092128994
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5045803813698010149}
+  m_Layer: 3
+  m_Name: Damage Area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5045803813698010149
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6537118270092128994}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1971390822637104059}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

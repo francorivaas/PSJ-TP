@@ -8,7 +8,6 @@ public class MeleeAttackEnemy : EnemyController
 
     public override void AttackPlayer()
     {
-        base.AttackPlayer();
         player.GetComponent<LifeController>().TakeDamage(damage);
     }
 
