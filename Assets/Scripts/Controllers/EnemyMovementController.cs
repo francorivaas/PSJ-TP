@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyMovementController : EnemyController
@@ -13,7 +11,7 @@ public class EnemyMovementController : EnemyController
 
     private void Start()
     {
-        animator = GetComponent<Animator>();    
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -29,16 +27,15 @@ public class EnemyMovementController : EnemyController
 
             Vector3 pos = transform.position;
             Vector3 playerPos = player.transform.position;
+
             float distanceBtw = Vector3.Distance(pos, playerPos);
 
             if (distanceBtw > maxDistance && distanceBtw < minDistance)
             {
-                pos = Vector3.MoveTowards(pos, playerPos, actorStats.Speed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(pos, playerPos, actorStats.Speed * Time.deltaTime);
 
                 if (animator != null)
-                {
                     animator.SetBool(moveAnim, true);
-                }
             }
         }
     }

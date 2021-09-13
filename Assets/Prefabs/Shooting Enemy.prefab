@@ -4848,7 +4848,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 1962863911707598981, guid: d32e1749cd3e0494db998f80a6658746, type: 3}
-  timeToShoot: 10
+  timeToShoot: 30
 --- !u!1 &4076762514375276328
 GameObject:
   m_ObjectHideFlags: 0
@@ -4943,6 +4943,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actorStats: {fileID: 11400000, guid: a14daf7ade8cdb1408094676712d752a, type: 2}
+  maxDistance: 2
+  minDistance: 20
 --- !u!114 &4999550304430561635
 MonoBehaviour:
   m_ObjectHideFlags: 0

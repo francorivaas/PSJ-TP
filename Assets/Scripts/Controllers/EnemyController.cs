@@ -41,4 +41,14 @@ public class EnemyController : MonoBehaviour, IBrain
     public virtual void AttackPlayer()
     {
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        int enemyLayer = collision.gameObject.layer;
+
+        if (enemyLayer == LayerMask.NameToLayer("Enemy"))
+        {
+            collision.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.right * 3f, ForceMode.Impulse);
+        }
+    }
 }
