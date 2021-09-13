@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class EnemyMovementController : EnemyController
 {
-    private float distance = 2.0f;
+    [Header("Distances")]
+    [SerializeField] private float maxDistance = 2.0f;
+    [SerializeField] private float minDistance = 20.0f;
 
     private Animator animator;
     private string moveAnim = "IsRunning";
@@ -25,9 +27,13 @@ public class EnemyMovementController : EnemyController
         {
             transform.LookAt(player.transform);
 
-            if (Vector3.Distance(transform.position, player.transform.position) > distance)
+            Vector3 pos = transform.position;
+            Vector3 playerPos = player.transform.position;
+            float distanceBtw = Vector3.Distance(pos, playerPos);
+
+            if (distanceBtw > maxDistance && distanceBtw < minDistance)
             {
-                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, actorStats.Speed * Time.deltaTime);
+                pos = Vector3.MoveTowards(pos, playerPos, actorStats.Speed * Time.deltaTime);
 
                 if (animator != null)
                 {
