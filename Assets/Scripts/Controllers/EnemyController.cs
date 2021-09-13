@@ -19,9 +19,9 @@ public class EnemyController : MonoBehaviour, IBrain
         life.Death += Life_Death;
     }
 
-    private void Life_Death()
+    public virtual void Life_Death()
     {
-        Destroy(gameObject);
+        Destroy(gameObject, 0.5f);
     }
 
     private void Update()

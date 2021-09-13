@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
+    [Header("Enemy to spawn")]
     private Spawner<EnemyController> enemySpawner = new Spawner<EnemyController>();
     [SerializeField] private List<EnemyController> enemyControlList = new List<EnemyController>();
 
+    [Header("How many enemies")]
     [SerializeField] private int enemiesToSpawn;
 
-    private float timeToSpawn = 10.0f;
+    [Header("Time to spawn")]
+    [SerializeField] private float timeToSpawn = 10.0f;
     private float currentTimeToSpawn = 0.0f;
 
     private bool canSpawn;
