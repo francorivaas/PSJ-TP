@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour, IBrain
 {
     [SerializeField] protected ActorStats actorStats;
-    private Animator animator;
+    protected Animator animator;
 
     protected PlayerController player;
     private LifeController life;
@@ -39,8 +39,6 @@ public class EnemyController : MonoBehaviour, IBrain
 
     public virtual void FollowTarget()
     {
-        if(animator != null)
-            animator.SetBool("IsRunning", true);
     }
 
     public virtual void AttackPlayer()

@@ -28,7 +28,7 @@ public class EnemyMovementController : EnemyController
 
             if (distanceBtw > maxDistance && distanceBtw < minDistance)
             {
-                base.FollowTarget();
+                animator.SetBool("IsRunning", true);
                 transform.position = Vector3.MoveTowards(pos, playerPos, actorStats.Speed * Time.deltaTime);
             }
         }
