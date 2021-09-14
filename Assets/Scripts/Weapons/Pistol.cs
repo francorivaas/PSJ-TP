@@ -23,9 +23,6 @@ public class Pistol : Weapon
             RaycastHit hit;
             if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range))
             {
-                Debug.Log(hit.transform.name);
-
-
                 var go = hit.transform.gameObject;
                 if (go.layer == LayerMask.NameToLayer("Enemy"))
                 {
