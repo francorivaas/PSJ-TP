@@ -4899,8 +4899,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.4732718
-  m_Center: {x: 0, y: 2.1299133, z: 0}
+  m_Radius: 2.1480844
+  m_Center: {x: -0.0224936, y: 2.2873695, z: 0}
 --- !u!54 &693878087198602011
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4930,7 +4930,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actorStats: {fileID: 11400000, guid: a14daf7ade8cdb1408094676712d752a, type: 2}
-  animator: {fileID: 7261726511533532384}
 --- !u!114 &4765143223320504650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4944,7 +4943,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actorStats: {fileID: 11400000, guid: a14daf7ade8cdb1408094676712d752a, type: 2}
-  animator: {fileID: 7261726511533532384}
   maxDistance: 2
   minDistance: 20
 --- !u!114 &4999550304430561635
