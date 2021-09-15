@@ -7,9 +7,10 @@ public class SanityMeterController : MonoBehaviour
 {
     [SerializeField] private float maxSanity = 100.0f;
     [SerializeField] private float sanityConsumption = 1.0f;
-    [SerializeField] private float range = 3.0f;
+    [SerializeField] private float range = 30f;
     [SerializeField] private Text sanityText;
-    
+    [SerializeField] private Transform sanityPivot;
+
     private float currentSanity;
     private float time = 1.0f;
 
@@ -24,16 +25,18 @@ public class SanityMeterController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        print(sanityCanDecrease);
+
         RaycastHit hit;
 
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, range))
         {
-            var enemyInSight = hit.collider.gameObject.GetComponent<EnemyController>();
+            var enemyInSight = hit.collider.GetComponent<EnemyController>();
 
             if (enemyInSight != null)
                 sanityCanDecrease = true;
 
-            else if (enemyInSight == null)
+            else
                 sanityCanDecrease = false;
         }
 
@@ -46,7 +49,7 @@ public class SanityMeterController : MonoBehaviour
                 time = 1.0f;
             }
         }
-
+        Debug.DrawRay(sanityPivot.transform.position, sanityPivot.forward, Color.red);
         sanityText.text = currentSanity.ToString();
     }
 }
