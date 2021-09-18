@@ -18,11 +18,11 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        GameManager.instance.SetPlayer(this);
     }
 
     private void Start()
     {
+        GameManager.instance.SetPlayer(this);
         life = GetComponent<LifeController>();
         canCount = false;
         life.Death += Life_Death;    
@@ -54,7 +54,10 @@ public class PlayerController : MonoBehaviour
     private void WeaponInputs()
     {
         if (Input.GetMouseButtonDown(0))
+        {
+            AudioManager.instance.PlaySound(SoundClips.Shoot);
             weapon.Shoot();
+        }
 
         if (Input.GetKey(KeyCode.R))
             weapon.Reload();

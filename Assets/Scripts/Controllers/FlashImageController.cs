@@ -9,14 +9,14 @@ public class FlashImageController : MonoBehaviour
     private Animator animator;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         animator = GetComponent<Animator>();
         PickNumber();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         timeToFlash -= Time.deltaTime;
         if (timeToFlash <= 0)
