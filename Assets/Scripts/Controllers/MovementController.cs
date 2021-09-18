@@ -29,7 +29,6 @@ public class MovementController : MonoBehaviour
         maxSpeed = actorStats.Speed;
 
         canMove = true;
-        isAiming = false;
     }
 
     private void Update()

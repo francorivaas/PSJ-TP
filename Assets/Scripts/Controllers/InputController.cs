@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(MovementController))]
-public class InputController : MonoBehaviour
+public class InputController : PlayerController
 {
     private MovementController player;
+    private ShootingController weapon;
 
     private void Start()
     {
-        player = GetComponent<MovementController>();    
+        player = GetComponent<MovementController>();
+        weapon = GetComponent<ShootingController>();
     }
 
     private void Update()
@@ -41,5 +43,20 @@ public class InputController : MonoBehaviour
         }
 
         #endregion PLAYER AIM
+
+        #region PLAYER SHOOT
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            weapon.Shoot();
+        }
+
+        if (Input.GetKey(KeyCode.R))
+        {
+
+        }
+
+        #endregion PLAYER SHOOT
+
     }
 }
