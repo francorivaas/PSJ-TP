@@ -12,8 +12,10 @@ public class Pistol : Weapon
 
     public override void Shoot()
     {
-        if (CanShoot)
+        if (HasAmmo)
         {
+            AudioManager.instance.PlaySound(SoundClips.Shoot);
+
             currentAmmo--;
             //BulletController b = Instantiate(bullet, firePoint.transform.position, Quaternion.identity);
             //b.SetAnOwner(this);

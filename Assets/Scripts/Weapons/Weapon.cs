@@ -18,12 +18,12 @@ public abstract class Weapon : MonoBehaviour, IGun
     [SerializeField] protected Text ammoText;
     [SerializeField] protected Transform firePoint;
 
-    private bool canShoot;
-    public bool CanShoot { get => canShoot; set => canShoot = value; }
+    private bool hasAmmo;
+    public bool HasAmmo { get => hasAmmo; set => hasAmmo = value; }
 
     private void Start()
     {
-        CanShoot = true;
+        HasAmmo = true;
         currentAmmo = weaponStats.MaxAmmo;
     }
 
@@ -31,7 +31,7 @@ public abstract class Weapon : MonoBehaviour, IGun
     {
         ammoText.text = currentAmmo + "/" + weaponStats.MaxAmmo;
 
-        CanShoot = currentAmmo <= 0 ? false : true;
+        HasAmmo = currentAmmo <= 0 ? false : true;
     }
 
     public void Reload()
@@ -41,5 +41,6 @@ public abstract class Weapon : MonoBehaviour, IGun
 
     public virtual void Shoot()
     {
+        
     }
 }

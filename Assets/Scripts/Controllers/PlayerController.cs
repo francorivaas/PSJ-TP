@@ -16,6 +16,10 @@ public class PlayerController : MonoBehaviour
     private bool canCount;
     private float timeToChangeScene = 1.0f;
 
+    private float timeToShootAgain = 0.4f;
+    private float currentTimeToShoot = 0.0f;
+    private bool canShoot;
+
     private void Awake()
     {
     }
@@ -25,6 +29,10 @@ public class PlayerController : MonoBehaviour
         GameManager.instance.SetPlayer(this);
         life = GetComponent<LifeController>();
         canCount = false;
+        canShoot = true;
+
+        currentTimeToShoot = timeToShootAgain;
+
         life.Death += Life_Death;    
     }
 
@@ -49,14 +57,27 @@ public class PlayerController : MonoBehaviour
                 GameManager.instance.LoadGameOverScene();
             }
         } 
+
+        if (!canShoot)
+        {
+            currentTimeToShoot += Time.deltaTime;
+            if (currentTimeToShoot >= timeToShootAgain)
+            {
+                canShoot = true;
+            }
+                
+        }
+        
     }
 
     private void WeaponInputs()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && canShoot)
         {
-            AudioManager.instance.PlaySound(SoundClips.Shoot);
+            canShoot = false;
             weapon.Shoot();
+
+            currentTimeToShoot = 0.0f;
         }
 
         if (Input.GetKey(KeyCode.R))
