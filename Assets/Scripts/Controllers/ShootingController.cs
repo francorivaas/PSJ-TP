@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShootingController : PlayerController
+public class ShootingController : MonoBehaviour
 {
     private float timeToShootAgain = 0.4f;
     private float currentTimeToShoot = 0.0f;
@@ -10,13 +10,11 @@ public class ShootingController : PlayerController
     public Weapon Weapon { get => weapon; }
     [SerializeField] private Weapon weapon;
 
-    public bool CanShoot { get => canShoot; set => canShoot = value; }
     private bool canShoot;
 
     private void Start()
     {
         canShoot = true;
-
         currentTimeToShoot = timeToShootAgain;
     }
 
@@ -26,9 +24,7 @@ public class ShootingController : PlayerController
         {
             currentTimeToShoot += Time.deltaTime;
             if (currentTimeToShoot >= timeToShootAgain)
-            {
                 canShoot = true;
-            }
         }
     }
 

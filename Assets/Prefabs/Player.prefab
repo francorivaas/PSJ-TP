@@ -7179,7 +7179,6 @@ GameObject:
   - component: {fileID: 5397678695445327917}
   - component: {fileID: 5397678695445327912}
   - component: {fileID: 5397678695445327894}
-  - component: {fileID: 2055370193}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -7258,7 +7257,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1dc760ff05d2bd46866980cdf8bfaa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeAmmountText: {fileID: 0}
 --- !u!114 &2684702746362942545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7271,7 +7269,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 132b4721365efc74a83f587989ee1b78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeAmmountText: {fileID: 0}
   weapon: {fileID: 5397678695151205509}
 --- !u!114 &5397678695445327917
 MonoBehaviour:
@@ -7317,20 +7314,6 @@ MonoBehaviour:
   sanityConsumption: 1
   range: 30
   sanityText: {fileID: 0}
---- !u!114 &2055370193
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5397678695445327918}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 132b4721365efc74a83f587989ee1b78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifeAmmountText: {fileID: 0}
-  weapon: {fileID: 5397678695151205509}
 --- !u!1 &5428536395372825277
 GameObject:
   m_ObjectHideFlags: 0

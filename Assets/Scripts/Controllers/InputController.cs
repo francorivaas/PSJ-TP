@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(MovementController))]
-public class InputController : PlayerController
+public class InputController : MonoBehaviour
 {
     private MovementController player;
     private ShootingController weapon;
