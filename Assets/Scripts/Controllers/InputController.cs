@@ -53,7 +53,7 @@ public class InputController : PlayerController
 
         if (Input.GetKey(KeyCode.R))
         {
-
+            weapon.Weapon.Reload();
         }
 
         #endregion PLAYER SHOOT
