@@ -1,32 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(MovementController))]
 public class InputController : MonoBehaviour
 {
-    private MovementController player;
-    private ShootingController weapon;
+    private MovementController playerMovement;
+    private ShootingController playerWeapon;
 
     private void Start()
     {
-        player = GetComponent<MovementController>();
-        weapon = GetComponent<ShootingController>();
+        playerMovement = GetComponent<MovementController>();
+        playerWeapon = GetComponent<ShootingController>();
     }
 
     private void Update()
     {
         #region PLAYER MOVEMENT
 
-        if (Input.GetKey(KeyCode.W)) player.Move(transform.forward, "IsRunning", true);
-        if (Input.GetKey(KeyCode.A)) player.Move(-transform.right, "IsRunning", true);
-        if (Input.GetKey(KeyCode.S)) player.Move(-transform.forward, "IsRunning", true);
-        if (Input.GetKey(KeyCode.D)) player.Move(transform.right, "IsRunning", true);
+        if (Input.GetKey(KeyCode.W)) playerMovement.Move(transform.forward, "IsRunning", true);
+        if (Input.GetKey(KeyCode.A)) playerMovement.Move(-transform.right, "IsRunning", true);
+        if (Input.GetKey(KeyCode.S)) playerMovement.Move(-transform.forward, "IsRunning", true);
+        if (Input.GetKey(KeyCode.D)) playerMovement.Move(transform.right, "IsRunning", true);
 
-        if (Input.GetKeyUp(KeyCode.W)) player.Move(Vector3.zero, "IsRunning", false);
-        if (Input.GetKeyUp(KeyCode.A)) player.Move(Vector3.zero, "IsRunning", false);
-        if (Input.GetKeyUp(KeyCode.S)) player.Move(Vector3.zero, "IsRunning", false);
-        if (Input.GetKeyUp(KeyCode.D)) player.Move(Vector3.zero, "IsRunning", false);
+        if (Input.GetKeyUp(KeyCode.W)) playerMovement.Move(Vector3.zero, "IsRunning", false);
+        if (Input.GetKeyUp(KeyCode.A)) playerMovement.Move(Vector3.zero, "IsRunning", false);
+        if (Input.GetKeyUp(KeyCode.S)) playerMovement.Move(Vector3.zero, "IsRunning", false);
+        if (Input.GetKeyUp(KeyCode.D)) playerMovement.Move(Vector3.zero, "IsRunning", false);
 
         #endregion PLAYER MOVEMENT
 
@@ -34,12 +31,12 @@ public class InputController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1))
         {
-            player.Aim();
+            playerMovement.Aim();
         }
 
         else if (Input.GetMouseButtonUp(1))
         {
-            player.StopAim();
+            playerMovement.StopAim();
         }
 
         #endregion PLAYER AIM
@@ -48,12 +45,12 @@ public class InputController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            weapon.Shoot();
+            playerWeapon.Shoot();
         }
 
         if (Input.GetKey(KeyCode.R))
         {
-            weapon.Weapon.Reload();
+            playerWeapon.Weapon.Reload();
         }
 
         #endregion PLAYER SHOOT
