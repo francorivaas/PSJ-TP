@@ -28,6 +28,6 @@ public class FlashImageController : MonoBehaviour
 
     private void PickNumber()
     {
-        timeToFlash = Random.Range(10f, 45f);
+        timeToFlash = Random.Range(5f, 10f);
     }
 }
