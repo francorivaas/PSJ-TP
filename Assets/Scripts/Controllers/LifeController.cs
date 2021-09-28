@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,7 +10,8 @@ public class LifeController : MonoBehaviour
     [SerializeField] private int _currentLife;
 
     //public event UnityAction GetDamage;
-    public event UnityAction Death;
+    public event Action<int, int> GetDamage;
+    public event Action Death;
 
     private void Start()
     {
@@ -22,6 +24,7 @@ public class LifeController : MonoBehaviour
 
     public virtual void TakeDamage(int damage)
     {
+        GetDamage?.Invoke(_currentLife, damage);
         _currentLife -= damage;
         
         if (_currentLife <= 0) 

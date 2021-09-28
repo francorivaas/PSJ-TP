@@ -20,7 +20,13 @@ public class PlayerController : MonoBehaviour
 
         canCount = false;
 
-        life.Death += Life_Death;    
+        life.Death += Life_Death;
+        life.GetDamage += Life_GetDamage;
+    }
+
+    private void Life_GetDamage(int currentLife, int damage)
+    {
+        life.CurrentLife -= damage;
     }
 
     private void Life_Death()

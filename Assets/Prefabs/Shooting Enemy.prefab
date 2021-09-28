@@ -4863,7 +4863,6 @@ GameObject:
   - component: {fileID: 6655210913159431990}
   - component: {fileID: 4765143223320504650}
   - component: {fileID: 4999550304430561635}
-  - component: {fileID: 7261726511533532384}
   m_Layer: 3
   m_Name: Shooting Enemy
   m_TagString: Untagged
@@ -4959,25 +4958,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actorStats: {fileID: 11400000, guid: a14daf7ade8cdb1408094676712d752a, type: 2}
   _currentLife: 0
---- !u!95 &7261726511533532384
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4076762514375276328}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5d4fdabf2a23b544ea66402f0c10162c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6789278882575026462
 GameObject:
   m_ObjectHideFlags: 0
