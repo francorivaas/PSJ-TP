@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class ShootingController : MonoBehaviour
 {
+    public Weapon Weapon => weapon;
+    [SerializeField] private Weapon weapon;
+
     private float timeToShootAgain = 0.4f;
     private float currentTimeToShoot = 0.0f;
-
-    public Weapon Weapon { get => weapon; }
-    [SerializeField] private Weapon weapon;
 
     private bool canShoot;
 

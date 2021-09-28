@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour
     public PlayerController Player => player;
     private PlayerController player;
 
+    public ShootingController PlayerWeapon => playerWeapon;
+    private ShootingController playerWeapon;
+
     private void Awake()
     {
         if (instance != null)
@@ -26,6 +29,11 @@ public class GameManager : MonoBehaviour
     public void SetPlayer(PlayerController player)
     {
         this.player = player;
+    }
+
+    public void SetPlayerWeapon(ShootingController playerWeapon)
+    {
+        this.playerWeapon = playerWeapon;
     }
 
     public void LoadGameOverScene()
