@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public abstract class Weapon : MonoBehaviour, IGun
 {
@@ -8,6 +9,8 @@ public abstract class Weapon : MonoBehaviour, IGun
     [SerializeField] protected BulletController bullet;
     [SerializeField] protected Text ammoText;
     [SerializeField] protected Transform firePoint;
+
+    public event Action<float, float> OnAmmoChange;
 
     protected int currentAmmo;
     public int Damage => damage;
@@ -19,21 +22,27 @@ public abstract class Weapon : MonoBehaviour, IGun
     {
         HasAmmo = true;
         currentAmmo = weaponStats.MaxAmmo;
+        OnAmmoChange?.Invoke(currentAmmo, weaponStats.MaxAmmo);
     }
 
     private void Update()
     {
-        ammoText.text = currentAmmo + "/" + weaponStats.MaxAmmo;
+        //ammoText.text = currentAmmo + "/" + weaponStats.MaxAmmo;
         HasAmmo = currentAmmo <= 0 ? false : true;
     }
 
     public void Reload()
     {
+        OnAmmoChange?.Invoke(currentAmmo, weaponStats.MaxAmmo);
         currentAmmo = weaponStats.MaxAmmo;
+    }
+
+    public void OnAmmoChangeHandler()
+    {
     }
 
     public virtual void Shoot()
     {
-        
+        OnAmmoChange?.Invoke(currentAmmo, weaponStats.MaxAmmo);
     }
 }

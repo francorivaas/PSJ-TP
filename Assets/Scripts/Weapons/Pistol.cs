@@ -12,6 +12,7 @@ public class Pistol : Weapon
 
     public override void Shoot()
     {
+        base.Shoot();
         if (HasAmmo)
         {
             AudioManager.instance.PlaySound(SoundClips.Shoot);

@@ -13,13 +13,21 @@ public class EnemyController : MonoBehaviour, IBrain
     private void Awake()
     {
         player = GameManager.instance.Player;
-        animator = GetComponent<Animator>();
     }
 
     private void Start()
     {
+        animator = GetComponentInChildren<Animator>();
         life = GetComponent<LifeController>();
+
         life.Death += Life_Death;
+        life.GetDamage += Life_GetDamage;
+    }
+
+    private void Life_GetDamage(int currentLife, int damage)
+    {
+        life.CurrentLife -= damage;
+        animator.SetTrigger("TakeDamage");
     }
 
     public virtual void Life_Death()
