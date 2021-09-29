@@ -30,7 +30,10 @@ public class AnimatorComponent : MonoBehaviour
     {
         animator.SetTrigger("TakeDamage");
     }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     private void LifeController_Death()
     {
         throw new System.NotImplementedException();

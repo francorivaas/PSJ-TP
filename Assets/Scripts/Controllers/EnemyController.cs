@@ -27,7 +27,7 @@ public class EnemyController : MonoBehaviour, IBrain
     private void Life_GetDamage(int currentLife, int damage)
     {
         life.CurrentLife -= damage;
-        animator.SetTrigger("TakeDamage");
+        
     }
 
     public virtual void Life_Death()
