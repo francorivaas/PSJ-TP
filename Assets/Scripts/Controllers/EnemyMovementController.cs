@@ -6,6 +6,8 @@ public class EnemyMovementController : EnemyController
     [SerializeField] private float maxDistance = 2.0f;
     [SerializeField] private float minDistance = 20.0f;
 
+    
+
     private void Start()
     {
     }
