@@ -27,7 +27,7 @@ public class EnemyMovementController : EnemyController
 
             if (distanceBtw > maxDistance && distanceBtw < minDistance)
             {
-                Move?.Invoke();            
+                Move?.Invoke();
                 transform.position = Vector3.MoveTowards(pos, playerPos, actorStats.Speed * Time.deltaTime);
             }
         }

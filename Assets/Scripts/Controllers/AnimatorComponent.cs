@@ -19,11 +19,15 @@ public class AnimatorComponent : MonoBehaviour
 
     private void Start()
     {
+        life = GetComponent<LifeController>();
+
         //Events
+
+        //Debug.LogError(gameObject.name);
         life.GetDamage += OnGetDamage;
-        life.Death += OnDeath;
         enemyMov.Move += OnMove;
         enemyController.Attack += OnAttack;
+
     }
 
     private void OnAttack()
@@ -39,10 +43,5 @@ public class AnimatorComponent : MonoBehaviour
     private void OnGetDamage(int arg1, int arg2)
     {
         animator.SetTrigger(getDamageAnimationName);
-    }
-
-    private void OnDeath()
-    {
-        //TODO: DeathAnim;
     }
 }

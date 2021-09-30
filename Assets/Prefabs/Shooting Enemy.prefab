@@ -4973,8 +4973,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 6904179702707100714}
   getDamageAnimationName: TakeDamage
-  moveAnimationName: 
-  attackAnimationName: 
+  moveAnimationName: IsRunning
+  attackAnimationName: IsAttacking
   enemyController: {fileID: 6655210913159431990}
   life: {fileID: 4999550304430561635}
   enemyMov: {fileID: 4765143223320504650}
@@ -4989,7 +4989,6 @@ GameObject:
   - component: {fileID: 6157420699498730404}
   - component: {fileID: 7123663362819185665}
   - component: {fileID: 4987914004264233163}
-  - component: {fileID: 7871442555327223296}
   - component: {fileID: 6904179702707100714}
   m_Layer: 3
   m_Name: Skull
@@ -5061,25 +5060,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7871442555327223296
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6789278882575026462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 382aad68600853a4095558cd26678f27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 0}
-  getDamageAnimationName: 
-  moveAnimationName: 
-  attackAnimationName: 
-  enemyController: {fileID: 0}
-  life: {fileID: 0}
-  enemyMov: {fileID: 0}
 --- !u!95 &6904179702707100714
 Animator:
   serializedVersion: 3
