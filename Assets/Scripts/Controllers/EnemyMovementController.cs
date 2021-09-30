@@ -7,10 +7,7 @@ public class EnemyMovementController : EnemyController
     [SerializeField] private float maxDistance = 2.0f;
     [SerializeField] private float minDistance = 20.0f;
 
-    private void Start()
-    {
-
-    }
+    public event Action Move;
 
     private void Update()
     {
@@ -30,7 +27,7 @@ public class EnemyMovementController : EnemyController
 
             if (distanceBtw > maxDistance && distanceBtw < minDistance)
             {
-
+                Move?.Invoke();            
                 transform.position = Vector3.MoveTowards(pos, playerPos, actorStats.Speed * Time.deltaTime);
             }
         }

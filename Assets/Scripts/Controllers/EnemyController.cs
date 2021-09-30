@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class EnemyController : MonoBehaviour, IBrain
 {
     [SerializeField] protected ActorStats actorStats;
     protected Animator animator;
-
     protected PlayerController player;
+
     private LifeController life;
+
+    public event Action Attack;
 
     private void Awake()
     {
@@ -27,7 +30,6 @@ public class EnemyController : MonoBehaviour, IBrain
     private void Life_GetDamage(int currentLife, int damage)
     {
         life.CurrentLife -= damage;
-        
     }
 
     public virtual void Life_Death()
@@ -51,10 +53,7 @@ public class EnemyController : MonoBehaviour, IBrain
 
     public virtual void AttackPlayer()
     {
-        if (animator != null)
-        {
-            animator.SetTrigger("IsAttacking");
-        }
+        Attack?.Invoke();
     }
 
     private void OnCollisionEnter(Collision collision)

@@ -4863,6 +4863,7 @@ GameObject:
   - component: {fileID: 6655210913159431990}
   - component: {fileID: 4765143223320504650}
   - component: {fileID: 4999550304430561635}
+  - component: {fileID: 6583957202679379976}
   m_Layer: 3
   m_Name: Shooting Enemy
   m_TagString: Untagged
@@ -4958,6 +4959,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actorStats: {fileID: 11400000, guid: a14daf7ade8cdb1408094676712d752a, type: 2}
   _currentLife: 0
+--- !u!114 &6583957202679379976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4076762514375276328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 382aad68600853a4095558cd26678f27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 6904179702707100714}
+  getDamageAnimationName: TakeDamage
+  moveAnimationName: 
+  attackAnimationName: 
+  enemyController: {fileID: 6655210913159431990}
+  life: {fileID: 4999550304430561635}
+  enemyMov: {fileID: 4765143223320504650}
 --- !u!1 &6789278882575026462
 GameObject:
   m_ObjectHideFlags: 0
@@ -5053,6 +5073,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382aad68600853a4095558cd26678f27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  getDamageAnimationName: 
+  moveAnimationName: 
+  attackAnimationName: 
+  enemyController: {fileID: 0}
+  life: {fileID: 0}
+  enemyMov: {fileID: 0}
 --- !u!95 &6904179702707100714
 Animator:
   serializedVersion: 3
