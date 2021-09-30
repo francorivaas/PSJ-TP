@@ -22,8 +22,6 @@ public class AnimatorComponent : MonoBehaviour
         life = GetComponent<LifeController>();
 
         //Events
-
-        //Debug.LogError(gameObject.name);
         life.GetDamage += OnGetDamage;
         enemyMov.Move += OnMove;
         enemyController.Attack += OnAttack;
