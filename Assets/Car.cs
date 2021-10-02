@@ -28,11 +28,16 @@ public class Car : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Player") && !GameManager.hasTools)
         {
             print("Debo encontrar ayuda, tal vez algunas herramientas sirvan. . .");
             AudioManager.instance.PlaySound(SoundClips.CarLock);
             horn.Stop();
+            TextManager.instance.DisplayText(Texts.firstText);
+        }
+        else if (collision.gameObject.layer == LayerMask.NameToLayer("Player") && GameManager.hasTools)
+        {
+            print("Game Over");
         }
     }
 }
