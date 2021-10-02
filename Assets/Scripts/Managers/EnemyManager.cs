@@ -37,14 +37,14 @@ public class EnemyManager : MonoBehaviour
             currentTimeToSpawn += Time.deltaTime;
             if (currentTimeToSpawn >= timeToSpawn)
             {
-                var spawnPosition = transform.position + new Vector3(Random.Range(5f, 10f), 0f);
+                var spawnPosition = transform.position + Random.insideUnitSphere * 10f; /*new Vector3(Random.Range(5f, 10f), 0f);*/
                 Collider[] enemy = Physics.OverlapSphere(spawnPosition, 2f, enemyMask);
 
                 var tryCounter = 0;
 
                 while (enemy.Length >= 1 && tryCounter < 10)
                 {
-                    spawnPosition = transform.position + new Vector3(Random.Range(5f, 10f), 0f);
+                    spawnPosition = transform.position + Random.insideUnitSphere * 10f; /*new Vector3(Random.Range(5f, 10f), 0f);*/
                     enemy = Physics.OverlapSphere(spawnPosition, 2f, enemyMask);
                     tryCounter++;
                 }

@@ -202,7 +202,7 @@ MonoBehaviour:
   timeToSpawn: 1
   enemyMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
 --- !u!4 &59624225
 Transform:
   m_ObjectHideFlags: 0
@@ -805,7 +805,7 @@ MonoBehaviour:
   timeToSpawn: 20
   enemyMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
 --- !u!1 &400657790
 GameObject:
   m_ObjectHideFlags: 0
@@ -6156,7 +6156,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &664497935
 Transform:
   m_ObjectHideFlags: 0
@@ -6657,7 +6657,7 @@ MonoBehaviour:
   timeToSpawn: 10
   enemyMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
 --- !u!1 &919341545
 GameObject:
   m_ObjectHideFlags: 0
@@ -7085,7 +7085,7 @@ MonoBehaviour:
   timeToSpawn: 10
   enemyMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
 --- !u!1 &962020722
 GameObject:
   m_ObjectHideFlags: 0
@@ -7144,7 +7144,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 980224951}
-  m_LocalRotation: {x: 0.3058386, y: -0.034983154, z: 0.011246047, w: 0.951374}
+  m_LocalRotation: {x: 0.3058386, y: -0.03498319, z: 0.011246061, w: 0.951374}
   m_LocalPosition: {x: -0.8196707, y: 0.19000006, z: -0.7118988}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
