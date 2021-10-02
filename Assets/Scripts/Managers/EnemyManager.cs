@@ -22,7 +22,6 @@ public class EnemyManager : MonoBehaviour
     private void Start()
     {
         currentTimeToSpawn = timeToSpawn;
-
         canSpawn = true;
     }
     private void Update()
@@ -30,6 +29,7 @@ public class EnemyManager : MonoBehaviour
         Spawn();
         CheckEnemiesLeft();
     }
+
     private void Spawn()
     {
         if (canSpawn)
@@ -37,15 +37,15 @@ public class EnemyManager : MonoBehaviour
             currentTimeToSpawn += Time.deltaTime;
             if (currentTimeToSpawn >= timeToSpawn)
             {
-                var spawnPosition = transform.position + Random.insideUnitSphere * 10f;
-                Collider[] enemy = Physics.OverlapSphere(spawnPosition, 10f, enemyMask); // TODO filtrar por Layer
+                var spawnPosition = transform.position + new Vector3(Random.Range(5f, 10f), 0f);
+                Collider[] enemy = Physics.OverlapSphere(spawnPosition, 2f, enemyMask);
 
                 var tryCounter = 0;
 
                 while (enemy.Length >= 1 && tryCounter < 10)
                 {
-                    spawnPosition = transform.position + Random.insideUnitSphere * 10f;
-                    enemy = Physics.OverlapSphere(spawnPosition, 10f, enemyMask);
+                    spawnPosition = transform.position + new Vector3(Random.Range(5f, 10f), 0f);
+                    enemy = Physics.OverlapSphere(spawnPosition, 2f, enemyMask);
                     tryCounter++;
                 }
 

@@ -11,21 +11,25 @@ public class AnimatorComponent : MonoBehaviour
     [SerializeField] private string moveAnimationName;
     [SerializeField] private string attackAnimationName;
 
-    [Header("Components")]
-
-    [SerializeField] private EnemyController enemyController;
-    [SerializeField] private LifeController life;
-    [SerializeField] private EnemyMovementController enemyMov;
+    private EnemyController enemyController;
+    private LifeController life;
+    private EnemyMovementController enemyMov;
 
     private void Start()
     {
+        #region COMPONENTS
+        //Components
+        enemyController = GetComponent<EnemyController>();
         life = GetComponent<LifeController>();
+        enemyMov = GetComponent<EnemyMovementController>();
+        #endregion COMPONENTS
 
+        #region EVENTS
         //Events
         life.GetDamage += OnGetDamage;
         enemyMov.Move += OnMove;
         enemyController.Attack += OnAttack;
-
+        #endregion EVENTS
     }
 
     private void OnAttack()
@@ -38,7 +42,7 @@ public class AnimatorComponent : MonoBehaviour
         animator.SetBool(moveAnimationName, true);
     }
 
-    private void OnGetDamage(int arg1, int arg2)
+    private void OnGetDamage(int currentLife, int damage)
     {
         animator.SetTrigger(getDamageAnimationName);
     }
