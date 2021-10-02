@@ -37,7 +37,7 @@ public class Car : MonoBehaviour
         }
         else if (collision.gameObject.layer == LayerMask.NameToLayer("Player") && GameManager.hasTools)
         {
-            print("Game Over");
+            GameManager.instance.LoadVictoryScene();
         }
     }
 }
