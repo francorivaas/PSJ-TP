@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum SoundClips
 {
-    Shoot,
+    Shoot, CarLock
 }
 
 public class AudioManager : MonoBehaviour
@@ -19,6 +19,7 @@ public class AudioManager : MonoBehaviour
     [Header("Sounds")]
     [SerializeField] private AudioSource soundsAudioSource;
     [SerializeField] private AudioClip shoot;
+    [SerializeField] private AudioClip carLock;
 
     public void Awake()
     {
@@ -45,6 +46,11 @@ public class AudioManager : MonoBehaviour
             case SoundClips.Shoot:
                 soundsAudioSource.volume = 1f;
                 soundsAudioSource.PlayOneShot(shoot);
+                break;
+
+            case SoundClips.CarLock:
+                soundsAudioSource.volume = 0.3f;
+                soundsAudioSource.PlayOneShot(carLock);
                 break;
 
             default:

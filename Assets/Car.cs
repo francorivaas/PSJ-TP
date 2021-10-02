@@ -31,6 +31,7 @@ public class Car : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             print("Debo encontrar ayuda, tal vez algunas herramientas sirvan. . .");
+            AudioManager.instance.PlaySound(SoundClips.CarLock);
             horn.Stop();
         }
     }

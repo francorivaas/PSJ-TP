@@ -6029,6 +6029,7 @@ MonoBehaviour:
   music: {fileID: 0}
   soundsAudioSource: {fileID: 1815864735}
   shoot: {fileID: 8300000, guid: acbd5d43f580b65479b5dbad30a3966e, type: 3}
+  carLock: {fileID: 8300000, guid: abf617087742b4f409e917177a9cf9ee, type: 3}
 --- !u!4 &551146936
 Transform:
   m_ObjectHideFlags: 0
@@ -7037,7 +7038,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 980224951}
-  m_LocalRotation: {x: 0.3058386, y: -0.034983158, z: 0.011246047, w: 0.951374}
+  m_LocalRotation: {x: 0.3058386, y: -0.03498319, z: 0.011246061, w: 0.951374}
   m_LocalPosition: {x: -0.8196707, y: 0.19000006, z: -0.7118988}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
