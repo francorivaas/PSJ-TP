@@ -3,8 +3,6 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private Text lifeAmmountText;
-
     private Animator animator;
     private LifeController life;
 
@@ -18,18 +16,17 @@ public class PlayerController : MonoBehaviour
         life = GetComponent<LifeController>();
         animator = GetComponentInChildren<Animator>();
 
+        life.Death += OnDeath;
+        life.GetDamage += OnGetDamage;
         canCount = false;
-
-        life.Death += Life_Death;
-        life.GetDamage += Life_GetDamage;
     }
 
-    private void Life_GetDamage(int currentLife, int damage)
+    private void OnGetDamage(int currentLife, int damage)
     {
         life.CurrentLife -= damage;
     }
 
-    private void Life_Death()
+    private void OnDeath()
     {
         animator.SetTrigger("IsDead");
         canCount = true;
@@ -37,8 +34,6 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        lifeAmmountText.text = life.CurrentLife.ToString();
-
         if (canCount)
         {
             timeToChangeScene -= Time.deltaTime;
@@ -46,6 +41,7 @@ public class PlayerController : MonoBehaviour
             {
                 canCount = false;
                 GameManager.instance.LoadGameOverScene();
+                life.ResetValues();
             }
         } 
     }
