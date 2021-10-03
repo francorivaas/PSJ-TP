@@ -5,6 +5,7 @@ using UnityEngine.Events;
 public class LifeController : MonoBehaviour
 {
     [SerializeField] private ActorStats actorStats;
+    [SerializeField] private HealthbarController healthbar;
 
     public int CurrentLife { get => _currentLife; set => _currentLife = value; }
     [SerializeField] private int _currentLife;
@@ -25,5 +26,10 @@ public class LifeController : MonoBehaviour
         
         if (_currentLife <= 0) 
             Death.Invoke();
+    }
+
+    private void Update()
+    {
+        if (healthbar != null) healthbar.UpdateHealthbar(_currentLife, actorStats.MaxLife);
     }
 }
