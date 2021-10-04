@@ -7,6 +7,7 @@ public class MovementController : MonoBehaviour
     [SerializeField] private ActorStats actorStats;
     [SerializeField] private Vector3 rotationSensibility;
 
+    private InputController input;
     private Rigidbody body;
     private Animator animator;
 
@@ -17,17 +18,17 @@ public class MovementController : MonoBehaviour
     private bool canMove;
     private bool isAiming;
 
-    private MoveCommand moveForward;
-    private MoveCommand moveBackwards;
-    private MoveCommand moveLeft;
-    private MoveCommand moveRight;
-    private MoveCommand stop;
+    //private MoveCommand moveForward;
+    //private MoveCommand moveBackwards;
+    //private MoveCommand moveLeft;
+    //private MoveCommand moveRight;
+    //private MoveCommand stop;
 
-    public MoveCommand MoveForward => moveForward;
-    public MoveCommand MoveBackwards => moveBackwards;
-    public MoveCommand MoveLeft => moveLeft;
-    public MoveCommand MoveRight => moveRight;
-    public MoveCommand Stop => stop;
+    //public MoveCommand MoveForward => moveForward;
+    //public MoveCommand MoveBackwards => moveBackwards;
+    //public MoveCommand MoveLeft => moveLeft;
+    //public MoveCommand MoveRight => moveRight;
+    //public MoveCommand Stop => stop;
 
     private void Start()
     {
@@ -35,6 +36,7 @@ public class MovementController : MonoBehaviour
 
         body = GetComponentInParent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
+        input = GetComponent<InputController>();
 
         #endregion Get Components
 
@@ -47,11 +49,18 @@ public class MovementController : MonoBehaviour
 
     private void InitializeCommands()
     {
-        moveForward = new MoveCommand(transform, Vector3.forward, actorStats);
-        moveBackwards = new MoveCommand(transform, Vector3.back, actorStats);
-        moveLeft = new MoveCommand(transform, Vector3.left, actorStats);
-        moveRight = new MoveCommand(transform, Vector3.right, actorStats);
-        stop = new MoveCommand(transform, Vector3.zero, actorStats);
+        input.OnMove += Move;
+        //moveForward = new MoveCommand(transform, transform.forward, actorStats);
+        //moveBackwards = new MoveCommand(transform, -transform.forward, actorStats);
+        //moveLeft = new MoveCommand(transform, -transform.right, actorStats);
+        //moveRight = new MoveCommand(transform, transform.right, actorStats);
+        //stop = new MoveCommand(transform, Vector3.zero, actorStats);
+    }
+
+    private void Move(float horizontal, float vertical)
+    {
+        Vector3 movement = transform.right * horizontal + transform.forward * vertical;
+        transform.position += movement * actorStats.Speed * Time.deltaTime;
     }
 
     private void Update()
@@ -73,6 +82,8 @@ public class MovementController : MonoBehaviour
 
     private void CheckRotation()
     {
+
+
         rotX += Input.GetAxis("Mouse X") * Time.deltaTime * rotationSensibility.x;
         rotY += Input.GetAxis("Mouse Y") * Time.deltaTime * rotationSensibility.y;
 

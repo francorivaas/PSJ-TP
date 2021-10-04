@@ -34,6 +34,7 @@ public class Car : MonoBehaviour
             AudioManager.instance.PlaySound(SoundClips.CarLock);
             horn.Stop();
             TextManager.instance.DisplayText(Texts.firstText);
+            Destroy(horn.gameObject);
         }
         else if (collision.gameObject.layer == LayerMask.NameToLayer("Player") && GameManager.hasTools)
         {
