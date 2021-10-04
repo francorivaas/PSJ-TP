@@ -8,7 +8,8 @@ public class MovementController : MonoBehaviour
 
     private InputController input;
     private Animator animator;
-    
+    private Rigidbody body;
+
     public event Action Moving;
     
     private float rotX;
@@ -17,6 +18,9 @@ public class MovementController : MonoBehaviour
 
     private bool canMove;
     private bool isAiming;
+
+    private JumpCommand jumpCommand;
+    public JumpCommand JumpCommand => jumpCommand;
 
     //private MoveCommand moveForward;
     //private MoveCommand moveBackwards;
@@ -35,6 +39,7 @@ public class MovementController : MonoBehaviour
         #region Get Components
         animator = GetComponentInChildren<Animator>();
         input = GetComponent<InputController>();
+        body = GetComponent<Rigidbody>();
         #endregion Get Components
 
         maxSpeed = actorStats.Speed;
@@ -47,11 +52,7 @@ public class MovementController : MonoBehaviour
     private void InitializeCommands()
     {
         input.OnMove += Move;
-        //moveForward = new MoveCommand(transform, transform.forward, actorStats);
-        //moveBackwards = new MoveCommand(transform, -transform.forward, actorStats);
-        //moveLeft = new MoveCommand(transform, -transform.right, actorStats);
-        //moveRight = new MoveCommand(transform, transform.right, actorStats);
-        //stop = new MoveCommand(transform, Vector3.zero, actorStats);
+        jumpCommand = new JumpCommand(body, transform.up, 100f, ForceMode.Acceleration);
     }
 
     private void Move(float horizontal, float vertical)
@@ -59,12 +60,13 @@ public class MovementController : MonoBehaviour
         Vector3 movement = transform.right * horizontal + transform.forward * vertical;
         transform.position += movement * actorStats.Speed * Time.deltaTime;
 
-        animator.SetBool("IsRunning", true);
+        //animator.SetBool("IsRunning", true);
     }
 
     private void Update()
     {
         CheckRotation();
+        body.AddForce(Vector3.up * 2f);
     }
 
     public void Aim()

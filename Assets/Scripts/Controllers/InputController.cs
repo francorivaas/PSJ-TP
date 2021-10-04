@@ -8,6 +8,7 @@ public class InputController : MonoBehaviour
 
     private string horizontalAxis = "Horizontal";
     private string verticalAxis = "Vertical";
+
     public Action<float, float> OnMove;
 
     private void Start()
@@ -20,17 +21,11 @@ public class InputController : MonoBehaviour
     {
         CheckMovement();
 
-        //#region PLAYER MOVEMENT
-        //if (Input.GetKey(KeyCode.W)) playerMovement.MoveForward.Execute();
-        //if (Input.GetKey(KeyCode.A)) playerMovement.MoveLeft.Execute();
-        //if (Input.GetKey(KeyCode.S)) playerMovement.MoveBackwards.Execute();
-        //if (Input.GetKey(KeyCode.D)) playerMovement.MoveRight.Execute();
-
-        //if (Input.GetKeyUp(KeyCode.W)) playerMovement.Stop.Execute();
-        //if (Input.GetKeyUp(KeyCode.A)) playerMovement.Stop.Execute();
-        //if (Input.GetKeyUp(KeyCode.S)) playerMovement.Stop.Execute();
-        //if (Input.GetKeyUp(KeyCode.D)) playerMovement.Stop.Execute();
-        //#endregion PLAYER MOVEMENT
+        if (Input.GetKey(KeyCode.Space))
+        {
+            print("Debería funcionar ! ! !");
+            playerMovement.JumpCommand.Execute();
+        }
 
         #region PLAYER AIM
 
