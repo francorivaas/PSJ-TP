@@ -17,6 +17,18 @@ public class MovementController : MonoBehaviour
     private bool canMove;
     private bool isAiming;
 
+    private MoveCommand moveForward;
+    private MoveCommand moveBackwards;
+    private MoveCommand moveLeft;
+    private MoveCommand moveRight;
+    private MoveCommand stop;
+
+    public MoveCommand MoveForward => moveForward;
+    public MoveCommand MoveBackwards => moveBackwards;
+    public MoveCommand MoveLeft => moveLeft;
+    public MoveCommand MoveRight => moveRight;
+    public MoveCommand Stop => stop;
+
     private void Start()
     {
         #region Get Components
@@ -29,20 +41,22 @@ public class MovementController : MonoBehaviour
         maxSpeed = actorStats.Speed;
 
         canMove = true;
+
+        InitializeCommands();
+    }
+
+    private void InitializeCommands()
+    {
+        moveForward = new MoveCommand(transform, Vector3.forward, actorStats);
+        moveBackwards = new MoveCommand(transform, Vector3.back, actorStats);
+        moveLeft = new MoveCommand(transform, Vector3.left, actorStats);
+        moveRight = new MoveCommand(transform, Vector3.right, actorStats);
+        stop = new MoveCommand(transform, Vector3.zero, actorStats);
     }
 
     private void Update()
     {
         CheckRotation();
-    }
-
-    public void Move(Vector3 direction, string animation, bool value)
-    {
-        if (canMove && !animator.GetBool("IsAiming"))
-        {
-            body.velocity = direction * maxSpeed;
-            animator.SetBool(animation, value);
-        }
     }
 
     public void Aim()

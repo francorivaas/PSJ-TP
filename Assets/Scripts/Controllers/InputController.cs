@@ -19,15 +19,15 @@ public class InputController : MonoBehaviour
     private void Update()
     {
         #region PLAYER MOVEMENT
-        if (Input.GetKey(KeyCode.W)) playerMovement.Move(transform.forward, "IsRunning", true);
-        if (Input.GetKey(KeyCode.A)) playerMovement.Move(-transform.right, "IsRunning", true);
-        if (Input.GetKey(KeyCode.S)) playerMovement.Move(-transform.forward, "IsRunning", true);
-        if (Input.GetKey(KeyCode.D)) playerMovement.Move(transform.right, "IsRunning", true);
+        if (Input.GetKey(KeyCode.W)) playerMovement.MoveForward.Execute();
+        if (Input.GetKey(KeyCode.A)) playerMovement.MoveLeft.Execute();
+        if (Input.GetKey(KeyCode.S)) playerMovement.MoveBackwards.Execute();
+        if (Input.GetKey(KeyCode.D)) playerMovement.MoveRight.Execute();
 
-        if (Input.GetKeyUp(KeyCode.W)) playerMovement.Move(Vector3.zero, "IsRunning", false);
-        if (Input.GetKeyUp(KeyCode.A)) playerMovement.Move(Vector3.zero, "IsRunning", false);
-        if (Input.GetKeyUp(KeyCode.S)) playerMovement.Move(Vector3.zero, "IsRunning", false);
-        if (Input.GetKeyUp(KeyCode.D)) playerMovement.Move(Vector3.zero, "IsRunning", false);
+        if (Input.GetKeyUp(KeyCode.W)) playerMovement.Stop.Execute();
+        if (Input.GetKeyUp(KeyCode.A)) playerMovement.Stop.Execute();
+        if (Input.GetKeyUp(KeyCode.S)) playerMovement.Stop.Execute();
+        if (Input.GetKeyUp(KeyCode.D)) playerMovement.Stop.Execute();
         #endregion PLAYER MOVEMENT
 
         #region PLAYER AIM
