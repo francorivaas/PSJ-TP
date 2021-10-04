@@ -7244,7 +7244,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 377e95eb63e8cae45a426539d61ce1e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeAmmountText: {fileID: 0}
 --- !u!114 &5397678695445327913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7283,7 +7282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actorStats: {fileID: 11400000, guid: ee4b64ef5d34d12488579301224cefa7, type: 2}
-  rotationSensibility: {x: 100, y: 10, z: 0}
+  rotationSensibility: {x: 200, y: 10, z: 0}
 --- !u!114 &5397678695445327912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7297,7 +7296,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actorStats: {fileID: 11400000, guid: ee4b64ef5d34d12488579301224cefa7, type: 2}
-  _currentLife: 0
+  healthbar: {fileID: 0}
+  currentLife: 0
 --- !u!114 &5397678695445327894
 MonoBehaviour:
   m_ObjectHideFlags: 0

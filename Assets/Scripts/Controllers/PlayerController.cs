@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour
 {
     private Animator animator;
     private LifeController life;
+    private InputController input;
 
     private bool canCount;
     private float timeToChangeScene = 1.0f;
@@ -15,6 +16,7 @@ public class PlayerController : MonoBehaviour
 
         life = GetComponent<LifeController>();
         animator = GetComponentInChildren<Animator>();
+        input = GetComponent<InputController>();
 
         life.Death += OnDeath;
         life.GetDamage += OnGetDamage;
