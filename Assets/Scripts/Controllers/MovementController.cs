@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class MovementController : MonoBehaviour
 {
@@ -8,9 +7,10 @@ public class MovementController : MonoBehaviour
     [SerializeField] private Vector3 rotationSensibility;
 
     private InputController input;
-    private Rigidbody body;
     private Animator animator;
-
+    
+    public event Action Moving;
+    
     private float rotX;
     private float rotY;
     private float maxSpeed;
@@ -33,11 +33,8 @@ public class MovementController : MonoBehaviour
     private void Start()
     {
         #region Get Components
-
-        body = GetComponentInParent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
         input = GetComponent<InputController>();
-
         #endregion Get Components
 
         maxSpeed = actorStats.Speed;
@@ -61,6 +58,8 @@ public class MovementController : MonoBehaviour
     {
         Vector3 movement = transform.right * horizontal + transform.forward * vertical;
         transform.position += movement * actorStats.Speed * Time.deltaTime;
+
+        animator.SetBool("IsRunning", true);
     }
 
     private void Update()
@@ -82,8 +81,6 @@ public class MovementController : MonoBehaviour
 
     private void CheckRotation()
     {
-
-
         rotX += Input.GetAxis("Mouse X") * Time.deltaTime * rotationSensibility.x;
         rotY += Input.GetAxis("Mouse Y") * Time.deltaTime * rotationSensibility.y;
 

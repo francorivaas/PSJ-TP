@@ -32,6 +32,11 @@ public class AnimatorComponent : MonoBehaviour
         #endregion EVENTS
     }
 
+    private void OnMoving()
+    {
+        animator.SetBool("IsRunning", true);
+    }
+
     private void OnAttack()
     {
         animator.SetTrigger(attackAnimationName);
