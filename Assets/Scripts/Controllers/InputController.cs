@@ -21,9 +21,8 @@ public class InputController : MonoBehaviour
     {
         CheckMovement();
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            print("Debería funcionar ! ! !");
             playerMovement.JumpCommand.Execute();
         }
 

@@ -17,6 +17,7 @@ public class MovementController : MonoBehaviour
     private float maxSpeed;
 
     private bool canMove;
+    private bool isGrounded;
     private bool isAiming;
 
     private JumpCommand jumpCommand;
@@ -51,8 +52,13 @@ public class MovementController : MonoBehaviour
 
     private void InitializeCommands()
     {
-        input.OnMove += Move;
-        jumpCommand = new JumpCommand(body, transform.up, 100f, ForceMode.Acceleration);
+        if (canMove)
+        {
+            input.OnMove += Move;
+            jumpCommand = new JumpCommand(body, transform.up, 100f, ForceMode.Acceleration);
+        }
+
+        else if (!canMove) jumpCommand = null; /*new JumpCommand(body, Vector3.zero, 0f, ForceMode.Force);*/
     }
 
     private void Move(float horizontal, float vertical)
@@ -96,11 +102,12 @@ public class MovementController : MonoBehaviour
 
     #region COLLISION CHECK WITH GROUND
 
-    private void OnCollisionStay(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Ground") && !isAiming)
         {
             canMove = true;
+            isGrounded = true;
         }
     }
 
@@ -109,6 +116,7 @@ public class MovementController : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
             canMove = false;
+            isGrounded = false;
         }
     }
 
