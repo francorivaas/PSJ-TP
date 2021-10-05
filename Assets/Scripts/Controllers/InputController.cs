@@ -10,6 +10,7 @@ public class InputController : MonoBehaviour
     private string verticalAxis = "Vertical";
 
     public Action<float, float> OnMove;
+    public event Action OnMovingAnimation;
 
     private void Start()
     {

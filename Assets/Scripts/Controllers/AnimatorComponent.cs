@@ -14,29 +14,44 @@ public class AnimatorComponent : MonoBehaviour
     private EnemyController enemyController;
     private LifeController life;
     private EnemyMovementController enemyMov;
+    private InputController inputController;
+
+    public bool isPlayer;
 
     private void Start()
     {
         #region COMPONENTS
-        //Components
-        enemyController = GetComponent<EnemyController>();
-        life = GetComponent<LifeController>();
-        enemyMov = GetComponent<EnemyMovementController>();
+
+        if (!isPlayer)
+        {
+            enemyController = GetComponent<EnemyController>();
+            enemyMov = GetComponent<EnemyMovementController>();
+        }
+        else if (isPlayer)
+        {
+            inputController = GetComponent<InputController>();
+        }
+        else
+            life = GetComponent<LifeController>();
+
         #endregion COMPONENTS
 
+
         #region EVENTS
-        //Events
-        life.GetDamage += OnGetDamage;
-        enemyMov.Move += OnMove;
-        enemyController.Attack += OnAttack;
+
+        if (!isPlayer)
+        {
+            //life.GetDamage += OnGetDamage;
+            enemyMov.Move += OnMove;
+            enemyController.Attack += OnAttack;
+        }
+        if (isPlayer)
+        {
+
+        }
+
         #endregion EVENTS
     }
-
-    private void OnMoving()
-    {
-        animator.SetBool("IsRunning", true);
-    }
-
     private void OnAttack()
     {
         animator.SetTrigger(attackAnimationName);

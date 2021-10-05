@@ -11,8 +11,8 @@ namespace UnityStandardAssets.Utility
         // then shuts off emission, and waits for all particles to expire
         // before destroying the gameObject
 
-        public float minDuration = 8;
-        public float maxDuration = 10;
+        public float minDuration = 100;
+        public float maxDuration = 900;
 
         private float m_MaxLifetime;
         private bool m_EarlyStop;
@@ -32,11 +32,11 @@ namespace UnityStandardAssets.Utility
 
             float stopTime = Time.time + Random.Range(minDuration, maxDuration);
 
-            while (Time.time < stopTime && !m_EarlyStop)
-            {
-                yield return null;
-            }
-            Debug.Log("stopping " + name);
+            //while (Time.time < stopTime && !m_EarlyStop)
+            //{
+            //    yield return null;
+            //}
+            //Debug.Log("stopping " + name);
 
             // turn off emission
             foreach (var system in systems)

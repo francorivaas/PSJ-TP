@@ -17,23 +17,10 @@ public class MovementController : MonoBehaviour
     private float maxSpeed;
 
     private bool canMove;
-    private bool isGrounded;
     private bool isAiming;
 
     private JumpCommand jumpCommand;
     public JumpCommand JumpCommand => jumpCommand;
-
-    //private MoveCommand moveForward;
-    //private MoveCommand moveBackwards;
-    //private MoveCommand moveLeft;
-    //private MoveCommand moveRight;
-    //private MoveCommand stop;
-
-    //public MoveCommand MoveForward => moveForward;
-    //public MoveCommand MoveBackwards => moveBackwards;
-    //public MoveCommand MoveLeft => moveLeft;
-    //public MoveCommand MoveRight => moveRight;
-    //public MoveCommand Stop => stop;
 
     private void Start()
     {
@@ -56,17 +43,14 @@ public class MovementController : MonoBehaviour
         {
             input.OnMove += Move;
             jumpCommand = new JumpCommand(body, transform.up, 100f, ForceMode.Acceleration);
+            Moving?.Invoke();
         }
-
-        else if (!canMove) jumpCommand = null; /*new JumpCommand(body, Vector3.zero, 0f, ForceMode.Force);*/
     }
 
     private void Move(float horizontal, float vertical)
     {
         Vector3 movement = transform.right * horizontal + transform.forward * vertical;
         transform.position += movement * actorStats.Speed * Time.deltaTime;
-
-        //animator.SetBool("IsRunning", true);
     }
 
     private void Update()
@@ -107,7 +91,6 @@ public class MovementController : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Ground") && !isAiming)
         {
             canMove = true;
-            isGrounded = true;
         }
     }
 
@@ -116,7 +99,6 @@ public class MovementController : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
             canMove = false;
-            isGrounded = false;
         }
     }
 
