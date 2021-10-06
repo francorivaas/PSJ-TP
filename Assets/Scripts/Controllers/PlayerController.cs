@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
@@ -20,7 +21,14 @@ public class PlayerController : MonoBehaviour
 
         life.Death += OnDeath;
         life.GetDamage += OnGetDamage;
+        input.OnMoving += OnMovingAnimation;
         canCount = false;
+    }
+
+    private void OnMovingAnimation(bool isRunning)
+    {
+        if (isRunning) animator.SetBool("IsRunning", true);
+        else if (!isRunning) animator.SetBool("IsRunning", false);
     }
 
     private void OnGetDamage(int currentLife, int damage)

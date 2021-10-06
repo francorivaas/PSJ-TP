@@ -14,7 +14,6 @@ public class AnimatorComponent : MonoBehaviour
     private EnemyController enemyController;
     private LifeController life;
     private EnemyMovementController enemyMov;
-    private InputController inputController;
 
     public bool isPlayer;
 
@@ -30,16 +29,12 @@ public class AnimatorComponent : MonoBehaviour
             enemyMov.Move += OnMove;
             enemyController.Attack += OnAttack;
         }
-        else if (isPlayer)
-        {
-            inputController = GetComponent<InputController>();
-        }
         else
             life = GetComponent<LifeController>();
 
         #endregion COMPONENTS AND EVENTS
     }
-    private void OnAttack()
+    public void OnAttack()
     {
         animator.SetTrigger(attackAnimationName);
     }

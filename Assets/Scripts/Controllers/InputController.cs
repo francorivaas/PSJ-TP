@@ -10,6 +10,8 @@ public class InputController : MonoBehaviour
     private string verticalAxis = "Vertical";
 
     public Action<float, float> OnMove;
+    public event Action OnMoveAnimation;
+    public Action<bool> OnMoving;
 
     private void Start()
     {
@@ -19,8 +21,8 @@ public class InputController : MonoBehaviour
 
     private void Update()
     {
+        CheckInputForAnimations();
         CheckMovement();
-
         if (Input.GetKeyDown(KeyCode.Space))
         {
             playerMovement.JumpCommand.Execute();
@@ -44,5 +46,14 @@ public class InputController : MonoBehaviour
         float horizontal = Input.GetAxis(horizontalAxis);
         float vertical = Input.GetAxis(verticalAxis);
         OnMove?.Invoke(horizontal, vertical);
+    }
+
+    private void CheckInputForAnimations()
+    {
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
+            OnMoving?.Invoke(true);
+ 
+        else if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D))
+            OnMoving?.Invoke(false);
     }
 }

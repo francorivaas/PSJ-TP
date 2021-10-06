@@ -8,7 +8,6 @@ public class EnemyController : MonoBehaviour, IBrain
     [SerializeField] protected ActorStats actorStats;
     protected Animator animator;
     protected PlayerController player;
-
     private LifeController life;
 
     public event Action Attack;
