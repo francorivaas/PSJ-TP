@@ -6202,6 +6202,8 @@ Transform:
   - {fileID: 961913385}
   - {fileID: 818970157}
   - {fileID: 1101660737}
+  - {fileID: 673051053}
+  - {fileID: 2057827992}
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6310,6 +6312,56 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &673051052
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 673051053}
+  - component: {fileID: 673051054}
+  m_Layer: 0
+  m_Name: Enemy Manager (6)
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &673051053
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673051052}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 11.1, y: 0, z: 54.39}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 664497935}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &673051054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673051052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a5493b029c19b84c8a78ec1d5835b08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyControlList:
+  - {fileID: 895028193764887224, guid: fb3f3da4ef712f844828ecbcf067c054, type: 3}
+  enemiesToSpawn: 6
+  timeToSpawn: 20
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!95 &673176898 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5710470920000222840, guid: c1fed81a8524b9749b1c4e54d30e1689, type: 3}
@@ -7253,7 +7305,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 980224951}
-  m_LocalRotation: {x: 0.3058386, y: -0.034983154, z: 0.011246047, w: 0.951374}
+  m_LocalRotation: {x: 0.3058386, y: -0.03498314, z: 0.011246043, w: 0.951374}
   m_LocalPosition: {x: -0.8196707, y: 0.19000006, z: -0.7118988}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -8662,7 +8714,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1612716786}
-  m_LocalRotation: {x: 0.3231445, y: -0.025930753, z: 0.008858138, w: 0.94595283}
+  m_LocalRotation: {x: 0.3231445, y: -0.02593072, z: 0.008858127, w: 0.94595283}
   m_LocalPosition: {x: -0.8756497, y: 0.19000006, z: -0.71549606}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -9375,6 +9427,56 @@ Transform:
   m_Father: {fileID: 1757609860}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2057827991
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2057827992}
+  - component: {fileID: 2057827993}
+  m_Layer: 0
+  m_Name: Enemy Manager (7)
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2057827992
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057827991}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 11.1, y: 0, z: 44.02}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 664497935}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2057827993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057827991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a5493b029c19b84c8a78ec1d5835b08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyControlList:
+  - {fileID: 895028193764887224, guid: fb3f3da4ef712f844828ecbcf067c054, type: 3}
+  enemiesToSpawn: 6
+  timeToSpawn: 20
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &2104007923
 GameObject:
   m_ObjectHideFlags: 0
