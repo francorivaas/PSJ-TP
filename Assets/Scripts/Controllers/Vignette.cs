@@ -12,13 +12,10 @@ public class Vignette : MonoBehaviour
     private float timeToDisplay = 3.0f;
     private float currentTimeToDisplay = 0.0f;
 
-    private bool canCountAgain;
-
     // Start is called before the first frame update
     void Start()
     {
         vignette.gameObject.SetActive(false);
-        canCountAgain = false;
     }
 
     // Update is called once per frame
@@ -31,7 +28,6 @@ public class Vignette : MonoBehaviour
         {
             vignette.gameObject.SetActive(true);
             TextManager.instance.DisplayText(Texts.secondText);
-            canCountAgain = true;
 
             if (currentTimeToDisplay >= timeToStopRendering)
             {

@@ -20,12 +20,15 @@ public class AnimatorComponent : MonoBehaviour
 
     private void Start()
     {
-        #region COMPONENTS
+        #region COMPONENTS AND EVENTS
 
         if (!isPlayer)
         {
             enemyController = GetComponent<EnemyController>();
             enemyMov = GetComponent<EnemyMovementController>();
+
+            enemyMov.Move += OnMove;
+            enemyController.Attack += OnAttack;
         }
         else if (isPlayer)
         {
@@ -34,23 +37,7 @@ public class AnimatorComponent : MonoBehaviour
         else
             life = GetComponent<LifeController>();
 
-        #endregion COMPONENTS
-
-
-        #region EVENTS
-
-        if (!isPlayer)
-        {
-            //life.GetDamage += OnGetDamage;
-            enemyMov.Move += OnMove;
-            enemyController.Attack += OnAttack;
-        }
-        if (isPlayer)
-        {
-
-        }
-
-        #endregion EVENTS
+        #endregion COMPONENTS AND EVENTS
     }
     private void OnAttack()
     {
