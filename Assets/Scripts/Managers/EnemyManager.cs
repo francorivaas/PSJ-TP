@@ -17,10 +17,11 @@ public class EnemyManager : MonoBehaviour
 
     private bool canSpawn;
 
+    [SerializeField] private LayerMask enemyMask;
+
     private void Start()
     {
         currentTimeToSpawn = timeToSpawn;
-
         canSpawn = true;
     }
     private void Update()
@@ -28,6 +29,7 @@ public class EnemyManager : MonoBehaviour
         Spawn();
         CheckEnemiesLeft();
     }
+
     private void Spawn()
     {
         if (canSpawn)
@@ -35,14 +37,28 @@ public class EnemyManager : MonoBehaviour
             currentTimeToSpawn += Time.deltaTime;
             if (currentTimeToSpawn >= timeToSpawn)
             {
+                var spawnPosition = transform.position + Random.insideUnitSphere * 10f; /*new Vector3(Random.Range(5f, 10f), 0f);*/
+                Collider[] enemy = Physics.OverlapSphere(spawnPosition, 2f, enemyMask);
+
+                var tryCounter = 0;
+
+                while (enemy.Length >= 1 && tryCounter < 10)
+                {
+                    spawnPosition = transform.position + Random.insideUnitSphere * 10f; /*new Vector3(Random.Range(5f, 10f), 0f);*/
+                    enemy = Physics.OverlapSphere(spawnPosition, 2f, enemyMask);
+                    tryCounter++;
+                }
+
                 EnemyController e = enemySpawner.Create(enemyControlList[Random.Range(0, enemyControlList.Count)]);
-                e.transform.position = transform.position; /*Vector3.forward + (Random.insideUnitSphere * 0.5f);*/
+                e.transform.position = spawnPosition;
+
                 currentTimeToSpawn = 0.0f;
 
                 enemiesToSpawn--;
             }
         }
     }
+
     private void CheckEnemiesLeft()
     {
         if (enemiesToSpawn <= 0)

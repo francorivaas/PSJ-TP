@@ -1064,13 +1064,14 @@ GameObject:
   - component: {fileID: 1971390822637104059}
   - component: {fileID: 1971390822627214429}
   - component: {fileID: 1971390822636615578}
+  - component: {fileID: 982175853902312926}
   - component: {fileID: 7969559735991010374}
-  - component: {fileID: 1971390822636615572}
+  - component: {fileID: 2898171330112259064}
   - component: {fileID: 4667999145150360337}
   - component: {fileID: 4667999145150360336}
   - component: {fileID: 3525844479252575038}
-  - component: {fileID: 2898171330112259064}
   - component: {fileID: 8455927822281968930}
+  - component: {fileID: 311508617864315514}
   m_Layer: 3
   m_Name: Melee Enemy
   m_TagString: Untagged
@@ -1128,21 +1129,7 @@ CapsuleCollider:
   m_Height: 0.92
   m_Direction: 2
   m_Center: {x: 0, y: 0.35, z: -0.1}
---- !u!136 &7969559735991010374
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1971390822636615577}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.27668914
-  m_Height: 1
-  m_Direction: 0
-  m_Center: {x: 0, y: 0.3297441, z: -0.03840027}
---- !u!54 &1971390822636615572
+--- !u!54 &982175853902312926
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1158,6 +1145,33 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!136 &7969559735991010374
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1971390822636615577}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.27668914
+  m_Height: 1
+  m_Direction: 0
+  m_Center: {x: 0, y: 0.3297441, z: -0.03840027}
+--- !u!65 &2898171330112259064
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1971390822636615577}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.46146798, z: 0.37615663}
+  m_Center: {x: 0, y: 0.269266, z: 0.3119217}
 --- !u!114 &4667999145150360337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1171,7 +1185,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actorStats: {fileID: 11400000, guid: a14daf7ade8cdb1408094676712d752a, type: 2}
-  animator: {fileID: 1971390822627214429}
 --- !u!114 &4667999145150360336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1185,7 +1198,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actorStats: {fileID: 11400000, guid: a14daf7ade8cdb1408094676712d752a, type: 2}
-  animator: {fileID: 0}
   maxDistance: 2
   minDistance: 20
 --- !u!114 &3525844479252575038
@@ -1202,19 +1214,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actorStats: {fileID: 11400000, guid: a14daf7ade8cdb1408094676712d752a, type: 2}
   _currentLife: 0
---- !u!65 &2898171330112259064
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1971390822636615577}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.46146798, z: 0.37615663}
-  m_Center: {x: 0, y: 0.269266, z: 0.3119217}
 --- !u!114 &8455927822281968930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1228,8 +1227,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actorStats: {fileID: 0}
-  animator: {fileID: 1971390822627214429}
   damage: 5
+--- !u!114 &311508617864315514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1971390822636615577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 382aad68600853a4095558cd26678f27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1971390822627214429}
+  getDamageAnimationName: OnDamage
+  moveAnimationName: IsRunning
+  attackAnimationName: IsAttacking
 --- !u!1 &1971390822636615579
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     public ShootingController PlayerWeapon => playerWeapon;
     private ShootingController playerWeapon;
 
+    public static bool hasTools;
+
     private void Awake()
     {
         if (instance != null)
@@ -43,6 +45,6 @@ public class GameManager : MonoBehaviour
 
     public void LoadVictoryScene()
     {
-        SceneManager.LoadScene("VictoryScreen");
+        SceneManager.LoadScene("VictoryScene");
     }
 }

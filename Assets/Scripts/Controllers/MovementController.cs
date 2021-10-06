@@ -1,15 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class MovementController : MonoBehaviour
 {
     [SerializeField] private ActorStats actorStats;
     [SerializeField] private Vector3 rotationSensibility;
 
-    private Rigidbody body;
+    private InputController input;
     private Animator animator;
+    private Rigidbody body;
 
+    public event Action Moving;
+    
     private float rotX;
     private float rotY;
     private float maxSpeed;
@@ -17,32 +19,44 @@ public class MovementController : MonoBehaviour
     private bool canMove;
     private bool isAiming;
 
+    private JumpCommand jumpCommand;
+    public JumpCommand JumpCommand => jumpCommand;
+
     private void Start()
     {
         #region Get Components
-
-        body = GetComponentInParent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
-
+        input = GetComponent<InputController>();
+        body = GetComponent<Rigidbody>();
         #endregion Get Components
 
         maxSpeed = actorStats.Speed;
 
         canMove = true;
+
+        InitializeCommands();
+    }
+
+    private void InitializeCommands()
+    {
+        if (canMove)
+        {
+            input.OnMove += Move;
+            jumpCommand = new JumpCommand(body, transform.up, 100f, ForceMode.Acceleration);
+            Moving?.Invoke();
+        }
+    }
+
+    private void Move(float horizontal, float vertical)
+    {
+        Vector3 movement = transform.right * horizontal + transform.forward * vertical;
+        transform.position += movement * actorStats.Speed * Time.deltaTime;
     }
 
     private void Update()
     {
         CheckRotation();
-    }
-
-    public void Move(Vector3 direction, string animation, bool value)
-    {
-        if (canMove && !animator.GetBool("IsAiming"))
-        {
-            body.velocity = direction * maxSpeed;
-            animator.SetBool(animation, value);
-        }
+        body.AddForce(Vector3.up * 2f);
     }
 
     public void Aim()
@@ -72,7 +86,7 @@ public class MovementController : MonoBehaviour
 
     #region COLLISION CHECK WITH GROUND
 
-    private void OnCollisionStay(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Ground") && !isAiming)
         {

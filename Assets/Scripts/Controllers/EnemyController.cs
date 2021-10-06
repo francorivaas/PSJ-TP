@@ -1,16 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class EnemyController : MonoBehaviour, IBrain
 {
     [SerializeField] protected ActorStats actorStats;
     protected Animator animator;
-
     protected PlayerController player;
+
     private LifeController life;
 
+    public event Action Attack;
+
     private void Awake()
+    {
+        Initialize();
+    }
+
+    private void Initialize()
     {
         player = GameManager.instance.Player;
     }
@@ -27,7 +35,6 @@ public class EnemyController : MonoBehaviour, IBrain
     private void Life_GetDamage(int currentLife, int damage)
     {
         life.CurrentLife -= damage;
-        animator.SetTrigger("TakeDamage");
     }
 
     public virtual void Life_Death()
@@ -51,19 +58,16 @@ public class EnemyController : MonoBehaviour, IBrain
 
     public virtual void AttackPlayer()
     {
-        if (animator != null)
-        {
-            animator.SetTrigger("IsAttacking");
-        }
+        Attack?.Invoke();
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        int enemyLayer = collision.gameObject.layer;
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    int enemyLayer = collision.gameObject.layer;
 
-        if (enemyLayer == LayerMask.NameToLayer("Enemy"))
-        {
-            collision.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.right * 3f, ForceMode.Impulse);
-        }
-    }
+    //    if (enemyLayer == LayerMask.NameToLayer("Enemy"))
+    //    {
+    //        collision.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.right * 3f, ForceMode.Impulse);
+    //    }
+    //}
 }

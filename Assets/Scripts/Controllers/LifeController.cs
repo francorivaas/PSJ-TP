@@ -5,29 +5,36 @@ using UnityEngine.Events;
 public class LifeController : MonoBehaviour
 {
     [SerializeField] private ActorStats actorStats;
+    [SerializeField] private HealthbarController healthbar;
 
-    public int CurrentLife { get => _currentLife; set => _currentLife = value; }
-    [SerializeField] private int _currentLife;
+    public int CurrentLife { get => currentLife; set => currentLife = value; }
+    [SerializeField] private int currentLife;
 
-    //public event UnityAction GetDamage;
-    public event Action<int, int> GetDamage;
+    public event Action <int, int> GetDamage;
     public event Action Death;
 
     private void Start()
     {
-        _currentLife = actorStats.MaxLife;
-    }
-
-    private void Update()
-    {
+        currentLife = actorStats.MaxLife;
     }
 
     public virtual void TakeDamage(int damage)
     {
-        GetDamage?.Invoke(_currentLife, damage);
-        _currentLife -= damage;
+        GetDamage?.Invoke(currentLife, damage);
+
+        currentLife -= damage;
         
-        if (_currentLife <= 0) 
-            Death.Invoke();
+        if (currentLife <= 0) Death.Invoke();
+    }
+
+    private void Update()
+    {
+        if (healthbar != null) healthbar.UpdateHealthbar(currentLife, actorStats.MaxLife);
+    }
+
+    public void ResetValues()
+    {
+        CurrentLife = actorStats.MaxLife;
+        healthbar.UpdateHealthbar(currentLife, actorStats.MaxLife);
     }
 }
